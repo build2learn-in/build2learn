@@ -1,0 +1,336 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-white text-gray-800">
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="relative bg-gradient-to-br from-primary-dark via-primary to-blue-500 text-white overflow-hidden">
+			<!-- Background Pattern -->
+			<div class="absolute inset-0 opacity-10">
+				<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<defs>
+						<pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+							<path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+						</pattern>
+					</defs>
+					<rect width="100" height="100" fill="url(#grid)" />
+				</svg>
+			</div>
+			
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
+				<div class="md:flex items-center justify-between">
+					<div class="md:w-1/2 mb-10 md:mb-0">
+						<h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-bold tracking-tight mb-4 leading-tight">
+							Build. Learn.<br/>
+							<span class="text-yellow-300">Collaborate.</span>
+						</h1>
+						<p class="text-xl md:text-2xl mb-8 text-gray-100 max-w-xl">
+							A community where people come together to build their ideas, learn new skills, and collaborate on exciting projects.
+						</p>
+						<div class="flex flex-wrap gap-4">
+							<a href="#about" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+								Learn More
+							</a>
+							<a href="#join" class="bg-transparent hover:bg-white/10 text-white font-bold py-3 px-8 rounded-lg border-2 border-white transition-all duration-300 hover:shadow-lg">
+								Join Us
+							</a>
+						</div>
+					</div>
+					<div class="md:w-1/2 flex justify-center">
+						<div class="relative w-full max-w-md">
+							<div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+							<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Collaboration" class="relative z-10 rounded-lg shadow-2xl object-cover w-full max-w-md mx-auto" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Wave Divider -->
+			<div class="absolute bottom-0 left-0 right-0">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto">
+					<path fill="white" fill-opacity="1" d="M0,64L60,80C120,96,240,128,360,128C480,128,600,96,720,80C840,64,960,64,1080,69.3C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+				</svg>
+			</div>
+		</section>
+
+		<main>
+			<!-- What We Do Section -->
+			<section id="about" class="py-20">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-16">
+						<span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">Our Mission</span>
+						<h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">What is Build2Learn?</h2>
+						<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+							A vibrant community where technical experts, students, and professionals collaborate monthly to create, innovate, and grow together.
+						</p>
+					</div>
+					
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
+							<div class="p-8">
+								<div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-500 text-white rounded-lg flex items-center justify-center mb-6">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+									</svg>
+								</div>
+								<h3 class="text-xl font-bold mb-4">Build Together</h3>
+								<p class="text-gray-600">
+									Turn ideas into reality through collaborative building and hands-on projects that solve real-world problems.
+								</p>
+							</div>
+						</div>
+						
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
+							<div class="p-8">
+								<div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-lg flex items-center justify-center mb-6">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+									</svg>
+								</div>
+								<h3 class="text-xl font-bold mb-4">Learn By Doing</h3>
+								<p class="text-gray-600">
+									Gain practical skills through workshops, mentorship, and real-world projects that enhance your professional toolkit.
+								</p>
+							</div>
+						</div>
+						
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
+							<div class="p-8">
+								<div class="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 text-white rounded-lg flex items-center justify-center mb-6">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+									</svg>
+								</div>
+								<h3 class="text-xl font-bold mb-4">Connect & Network</h3>
+								<p class="text-gray-600">
+									Meet like-minded individuals and build meaningful professional relationships that extend beyond our monthly events.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Monthly Events Section -->
+			<section id="events" class="py-20 bg-gray-50">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-16">
+						<span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">Join Us</span>
+						<h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Monthly Events</h2>
+						<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+							Join our monthly gatherings where we build, learn, and grow together as a community.
+						</p>
+					</div>
+					
+					<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+						<div class="md:flex">
+							<div class="md:w-1/2 p-8 md:p-12">
+								<h3 class="text-2xl font-bold mb-6 flex items-center">
+									<span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+									What to Expect
+								</h3>
+								<ul class="space-y-4">
+									<li class="flex items-start">
+										<div class="flex-shrink-0 h-6 w-6 text-primary mr-3 mt-1">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</div>
+										<div>
+											<p class="font-bold">Project Pitches</p>
+											<p class="text-gray-600 text-sm">Share your ideas and form teams to work on exciting projects</p>
+										</div>
+									</li>
+									<li class="flex items-start">
+										<div class="flex-shrink-0 h-6 w-6 text-primary mr-3 mt-1">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</div>
+										<div>
+											<p class="font-bold">Join a team</p>
+											<p class="text-gray-600 text-sm">Learn new technologies and techniques from experts</p>
+										</div>
+									</li>
+									<li class="flex items-start">
+										<div class="flex-shrink-0 h-6 w-6 text-primary mr-3 mt-1">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</div>
+										<div>
+											<p class="font-bold">Collaborative Building</p>
+											<p class="text-gray-600 text-sm">Work together on projects in a supportive environment</p>
+										</div>
+									</li>
+					
+									<li class="flex items-start">
+										<div class="flex-shrink-0 h-6 w-6 text-primary mr-3 mt-1">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</div>
+										<div>
+											<p class="font-bold">Project Showcases</p>
+											<p class="text-gray-600 text-sm">Present your work and get valuable feedback</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="md:w-1/2 bg-gradient-to-br from-primary to-primary-dark text-white p-8 md:p-12 relative overflow-hidden">
+								<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+								<div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+								
+								<div class="relative z-10">
+									<h3 class="text-2xl font-bold mb-6">Next Event</h3>
+									<div class="mb-8">
+										<p class="text-xl font-bold">Build2Learn Monthly Meetup</p>
+										<p class="text-gray-100 opacity-90">Third Saturday of every month</p>
+									</div>
+									
+									<div class="space-y-4 mb-8">
+										<div class="flex items-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+											</svg>
+											<p>Last Saturday of the month</p>
+										</div>
+										<div class="flex items-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+											<p>9:30 AM - 2:00 PM</p>
+										</div>
+										<div class="flex items-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+											</svg>
+											<p>Venue: TBD</p>
+										</div>
+									</div>
+									
+									<a href="#join" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-300">
+										Register Now
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Community Section -->
+			<section id="community" class="py-20">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-16">
+						<span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">Who We Are</span>
+						<h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Our Community</h2>
+						<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+							Diverse individuals united by a passion for building and learning together.
+						</p>
+					</div>
+					
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-xl border border-gray-100">
+							<div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+								<div class="absolute inset-0 bg-blue-500 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+								<div class="text-6xl relative z-10 group-hover:scale-110 transition-transform duration-300">👩‍💻</div>
+							</div>
+							<div class="p-6">
+								<h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Technical Experts</h3>
+								<p class="text-gray-600">
+									Experienced professionals who share their knowledge and mentor others in their areas of expertise.
+								</p>
+							</div>
+						</div>
+						
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-xl border border-gray-100">
+							<div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
+								<div class="absolute inset-0 bg-purple-500 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+								<div class="text-6xl relative z-10 group-hover:scale-110 transition-transform duration-300">🎓</div>
+							</div>
+							<div class="p-6">
+								<h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Students</h3>
+								<p class="text-gray-600">
+									Eager learners looking to apply classroom knowledge to real-world projects and expand their skills.
+								</p>
+							</div>
+						</div>
+						
+						<div class="bg-white rounded-xl shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-xl border border-gray-100">
+							<div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+								<div class="absolute inset-0 bg-green-500 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+								<div class="text-6xl relative z-10 group-hover:scale-110 transition-transform duration-300">👨‍💼</div>
+							</div>
+							<div class="p-6">
+								<h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Working Professionals</h3>
+								<p class="text-gray-600">
+									Industry practitioners seeking to collaborate, network, and stay current with emerging technologies.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- CTA Section -->
+			<section id="join" class="py-20 bg-gray-50">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+						<div class="md:flex">
+							<div class="md:w-3/5 p-8 md:p-12 bg-gradient-to-br from-primary to-primary-dark text-white relative overflow-hidden">
+								<div class="absolute top-0 right-0 -mt-20 -mr-20 w-60 h-60 bg-white opacity-10 rounded-full"></div>
+								<div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-60 h-60 bg-white opacity-10 rounded-full"></div>
+								
+								<div class="relative z-10">
+									<h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Community</h2>
+									<p class="text-xl mb-8 text-gray-100">
+										Ready to build, learn, and connect with fellow tech enthusiasts? Join our next monthly event and be part of the Build2Learn community!
+									</p>
+									<div class="flex flex-col sm:flex-row gap-4">
+										<a href="#" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-300 text-center">
+											Register for Next Event
+										</a>
+										<a href="#" class="bg-transparent hover:bg-white/10 text-white font-bold py-3 px-8 rounded-lg border-2 border-white transition-all duration-300 hover:shadow-lg text-center">
+											Join Our Discord
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="md:w-2/5 p-8 md:p-12 flex items-center justify-center">
+								<div class="text-center">
+									<div class="text-6xl mb-6">🚀</div>
+									<h3 class="text-2xl font-bold text-gray-800 mb-4">Next Monthly Meetup</h3>
+									<p class="text-gray-600 mb-6">
+										Join us on the last Saturday of every month for our next exciting event!
+									</p>
+									<div class="inline-block bg-gray-100 px-4 py-2 rounded-lg text-gray-700">
+										<div class="flex items-center justify-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+											</svg>
+											<span>Last Saturday of the month</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<Footer />
+	</body>
+</html>
