@@ -2,99 +2,105 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="text-center">
+          <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            Build 2 Learn
+          </h1>
+          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+          Community where ideas transform into reality through collaborative learning
+          </p>
+          <div className="flex gap-4 justify-center mb-16">
+            <a
+              href="/events"
+              className="rounded-full bg-blue-600 px-6 py-3 text-white hover:bg-blue-700 transition"
+            >
+              Join Next Event
+            </a>
+          </div>
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Value Propositions */}
+        <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+              New to Coding?
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Join a team and learn by building real projects. Get hands-on experience with experienced developers.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+              Have an Idea?
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Bring your app idea to life. Connect with developers who can help turn your vision into reality.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+              Experienced Developer?
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Share your knowledge, mentor others, and build exciting micro apps in a collaborative environment.
+            </p>
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            How It Works
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Monthly Meetup",
+                description: "We meet once a month to build micro apps together",
+              },
+              {
+                title: "Form Teams",
+                description: "Join existing projects or pitch your own idea",
+              },
+              {
+                title: "Build Together",
+                description: "Collaborate, learn, and create in a supportive environment",
+              },
+              {
+                title: "Launch",
+                description: "Present your work and celebrate achievements",
+              },
+            ].map((step, i) => (
+              <div key={i} className="text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto mb-4">
+                  {i + 1}
+                </div>
+                <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">{step.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 dark:border-gray-800 mt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex justify-center space-x-6">
+            <a href="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              About
+            </a>
+            <a href="/events" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              Events
+            </a>
+            <a href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              Contact
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
