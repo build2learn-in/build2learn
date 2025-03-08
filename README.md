@@ -22,6 +22,19 @@ A collaborative learning platform where users can join events, form teams, and b
 - [Postgres](https://www.postgresql.org/)
 
 
+## Todo 
+
+- [ ] precommit setup
+- [ ] unified signin/signup -> event registration flow with all relevant fields
+- [ ] email notications on registration - user will get a notication on registering for the event
+- [ ] admin - event management - need a way to create, update events
+- [ ] admin - registration management - need a way to approve registrations for events
+- [ ] admin - email notications - to communicate instructions to participants
+- [ ] project submission - need a way to submit projects build during an event
+- [ ] project gallery - showcase projects built by the participants
+- [ ] user - profile page - show all projects built by user - public page
+
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
