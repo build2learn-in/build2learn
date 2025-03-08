@@ -20,7 +20,7 @@
 
 3. Set up environment variables:
    - Copy `.env.example` to `.env` and update the values
-   - Make sure to set up your database connection string
+   - Make sure to set up your postgresql database connection string
 
 4. Set up the database:
    ```bash
