@@ -27,6 +27,7 @@ type Event = {
   eventDate: Date;
   registrationDeadline: Date;
   status: "DRAFT" | "PUBLISHED";
+  maxParticipants?: number | null;
   _count: {
     registrations: number;
   };
@@ -113,7 +114,7 @@ export default async function EventsPage() {
                       </Badge>
                     )}
                   </TableCell>
-                  <TableCell>{event._count.registrations}</TableCell>
+                  <TableCell>{event._count.registrations}/{event.maxParticipants}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <form>

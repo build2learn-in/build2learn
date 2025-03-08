@@ -15,6 +15,7 @@ type DashboardEvent = {
   title: string;
   slug: string;
   status: "DRAFT" | "PUBLISHED";
+  maxParticipants?: number | null;
   _count: {
     registrations: number;
   };
@@ -137,7 +138,7 @@ export default async function AdminDashboardPage() {
                           {event.status}
                         </Badge>
                         <span className="text-sm text-muted-foreground">
-                          {event._count.registrations} registrations
+                          {event._count.registrations}/{event.maxParticipants} registrations
                         </span>
                       </div>
                     </div>

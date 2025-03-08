@@ -16,8 +16,10 @@ async function getRegistrationStats() {
 }
 
 export default async function EventRegistrationsPage({ params }: { params: { id: string } }) {
+  // Await params before destructuring to access its properties
+  const resolvedParams = await params;
   const event = await prisma.event.findUnique({
-    where: { id: params.id },
+    where: { id: resolvedParams.id },
     include: {
       registrations: {
         include: {

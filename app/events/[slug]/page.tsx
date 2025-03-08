@@ -12,10 +12,11 @@ import { PatternBackground } from "@/components/ui/pattern-background";
 import RegisterEventForm from "./register-form";
 
 export default async function EventPage({ params }: { params: { slug: string } }) {
+  const resolvedParams = await params;
   const session = await getServerSession(authOptions);
   const event = await prisma.event.findUnique({
     where: { 
-      slug: params.slug,
+      slug: resolvedParams.slug,
       status: "PUBLISHED"
     },
     include: {
@@ -88,7 +89,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-glow">{event.title}</h1>
                 <div className="flex items-center gap-4 pt-2">
-                  <ShareEvent title={event.title} slug={params.slug} />
+                  <ShareEvent title={event.title} slug={resolvedParams.slug} />
                 </div>
               </div>
             </div>

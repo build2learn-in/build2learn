@@ -69,7 +69,8 @@ async function getProfile(username: string) {
 }
 
 export default async function ProfilePage({ params }: { params: { username: string } }) {
-  const profile = await getProfile(params.username)
+  const resolvedParams = await params;
+  const profile = await getProfile(resolvedParams.username)
   const session = await getServerSession(authOptions)
   const isOwnProfile = session?.user?.email === profile.email
   
