@@ -28,7 +28,7 @@ const project = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 		team: z.array(z.string()).optional(),
-		tech: z.array(z.string()).optional(),
+		tech_stack: z.array(z.string()).optional(),
 		github_url: z.string().optional(),
 		demo_url: z.string().optional(),
 	}),

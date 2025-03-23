@@ -1,15 +1,15 @@
 ---
 title: 'Calculator'
 developer: sureshdsk
-tech: 
-    - reactjs
-    - typescript
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-3.jpg'
 team: 
     - selvasudar
     - ashish
+tech_stack: 
+    - reactjs
+    - typescript
 github_url: 'https://github.com/sureshdsk/calculator'
 demo_url: 'https://sureshdsk.dev'
 ---
