@@ -7,6 +7,9 @@ heroImage: '/blog-placeholder-3.jpg'
 team: 
     - selvasudar
     - ashish
+tech_stack: 
+    - reactjs
+    - typescript
 github_url: 'https://github.com/sureshdsk/calculator'
 demo_url: 'https://sureshdsk.dev'
 
