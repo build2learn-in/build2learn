@@ -34,4 +34,31 @@ const project = defineCollection({
 	}),
 });
 
-export const collections = { blog, project };
+const event = defineCollection({
+	loader: glob({ base: './src/content/event', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		eventDate: z.coerce.date(),
+		registrationDeadline: z.coerce.date(),
+		heroImage: z.string().optional(),
+		registration_link: z.string(),
+		venue: z.string(),
+		venue_address: z.string(),
+		venue_location: z.string(),
+		organisers: z.array(z.object({
+			name: z.string(),
+			photo: z.string().optional(),
+			role: z.string().optional(),
+			social: z.object({
+				linkedin: z.string().optional(),
+				twitter: z.string().optional(),
+				github: z.string().optional(),
+				website: z.string().optional(),
+			}).optional(),
+		})),
+		maxParticipants: z.number().optional(),
+	}),
+});
+
+export const collections = { blog, project, event };
