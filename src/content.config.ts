@@ -46,17 +46,6 @@ const event = defineCollection({
 		venue: z.string(),
 		venue_address: z.string(),
 		venue_location: z.string(),
-		organisers: z.array(z.object({
-			name: z.string(),
-			photo: z.string().optional(),
-			role: z.string().optional(),
-			social: z.object({
-				linkedin: z.string().optional(),
-				twitter: z.string().optional(),
-				github: z.string().optional(),
-				website: z.string().optional(),
-			}).optional(),
-		})),
 		maxParticipants: z.number().optional(),
 	}),
 });
