@@ -7,9 +7,9 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://build2learn.pages.dev/',
-  output: 'static',
+  // output: 'static',
   integrations: [mdx(), sitemap(), tailwind()],
-  redirects: {
-    '/project': '/project/page/1'
-  }
+  // redirects: {
+  //   '/project': '/project/page/1'
+  // }
 });
