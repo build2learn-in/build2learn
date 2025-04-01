@@ -8,26 +8,6 @@ registration_link: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdrpl_HFCw1v9uW
 venue: 'TBD'
 venue_address: 'TBD'
 venue_location: 'https://maps.app.goo.gl/b8EeisZGsd1VDcGn6'
-organisers: #todo to be configured separately to follow DRY
-  - name: 'Ashish'
-    photo: "" # '/organizers/ashish.jpg'
-    role: 'Lead Organizer'
-    social:
-      linkedin: 'https://linkedin.com/in/ashish'
-      github: 'https://github.com/ashish'
-      twitter: 'https://twitter.com/ashish'
-  - name: 'Bhavani'
-    photo: ""
-    role: 'Lead Organizer'
-    social:
-      linkedin: 'https://linkedin.com/in/bhavani'
-      github: 'https://github.com/bhavani'
-  - name: 'Shiny'
-    photo: ""
-    role: 'Lead Organizer'
-    social:
-      linkedin: 'https://linkedin.com/in/shiny'
-      github: 'https://github.com/shiny'
 maxParticipants: 50
 ---
 
