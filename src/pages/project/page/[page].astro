@@ -1,0 +1,164 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../../components/FormattedDate.astro';
+
+// Fetch all posts from the 'project' collection
+
+
+// Define getStaticPaths with pagination
+export async  function getStaticPaths({ paginate }) {
+    const allPosts = (await getCollection('project')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+  return paginate(allPosts, { pageSize: 3 }); // 3 posts per page, as per your POSTS_PER_PAGE
+}
+
+// The paginated data is passed via Astro.props.page
+const { page } = Astro.props;
+const totalPages = page.lastPage; // Total number of pages from paginate
+const currentPage = page.currentPage; // Current page number
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} | Page ${currentPage}`} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        width: 960px;
+      }
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        list-style-type: none;
+        padding: 0;
+      }
+      .posts-grid li * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      .posts-grid li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        width: 100%;
+        height: auto;
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1;
+      }
+      .date {
+        margin: 0;
+        color: rgb(var(--gray));
+      }
+      .posts-grid li a:hover h4,
+      .posts-grid li a:hover .date {
+        color: rgb(var(--accent));
+      }
+      .posts-grid li a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 0.5rem;
+      }
+      .pagination-numbers {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .pagination-link,
+      .pagination-prev,
+      .pagination-next {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-decoration: none;
+        color: inherit;
+      }
+      .pagination-link.active {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+      .pagination-link:hover,
+      .pagination-prev:hover,
+      .pagination-next:hover {
+        background-color: #f0f0f0;
+      }
+      .pagination-link.active:hover {
+        background-color: #0069d9;
+      }
+      @media (max-width: 720px) {
+        .posts-grid {
+          gap: 0.5rem;
+        }
+        .posts-grid li {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section>
+        <!-- Posts list -->
+        <ul class="posts-grid">
+          {page.data.map((post) => (
+            <li>
+              <a href={`/project/${post.id}/`}>
+                <img width={720} height={360} src={post.data.heroImage} alt="" />
+                <h4 class="title">{post.data.title}</h4>
+                <p class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Pagination controls -->
+        {totalPages > 1 && (
+          <nav class="pagination">
+            {/* Previous page button */}
+            {currentPage > 1 && (
+              <a href={page.url.prev} class="pagination-prev">
+                Previous
+              </a>
+            )}
+
+            {/* Page numbers */}
+            <div class="pagination-numbers">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                <a
+                  href={`/project/page/${pageNum}`}
+                  class={`pagination-link ${pageNum === currentPage ? 'active' : ''}`}
+                >
+                  {pageNum}
+                </a>
+              ))}
+            </div>
+
+            {/* Next page button */}
+            {currentPage < totalPages && (
+              <a href={page.url.next} class="pagination-next">
+                Next
+              </a>
+            )}
+          </nav>
+        )}
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
