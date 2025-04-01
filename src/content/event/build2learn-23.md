@@ -1,13 +1,13 @@
 ---
-title: 'Build2Learn #24'
+title: 'Build2Learn #23'
 description: 'Join us for an exciting hackathon where innovation meets community!'
-eventDate: '2025-02-22'
-registrationDeadline: '2025-02-20'
+eventDate: '2025-01-25'
+registrationDeadline: '2025-01-20'
 heroImage: '/blog-placeholder-3.jpg'
-registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLSdayj8qdgRAgsJMMUAAutan9zcxdsylZnpm7iaFoT1ZDTvY-A/closedform'
-venue: 'Kriyadocs'
-venue_address: 'OLYMPIA CYBERSPACE, Guindy, Chennai'
-venue_location: 'https://maps.app.goo.gl/35pdymGYq8uBJQW46'
+registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLScsui1r6e6PsgDyOycPiIAY_rz9i8vQ02MnmikPw2ESVG830g/closedform'
+venue: 'IBM'
+venue_address: 'Ascendas IT Park, Taramani, Chennai'
+venue_location: 'https://maps.app.goo.gl/CwFhvwhoikw8P5dXA'
 maxParticipants: 50
 ---
 
@@ -27,11 +27,11 @@ At build2learn, we believe that magic happens when engineers come together to do
 
 ### Event Details
 
-- **Date**: Feb 22, 2025
+- **Date**: Jan 25, 2025
 - **Time**: 9:00 AM - 2:00 PM
-- **Venue**: Kriyadocs
+- **Venue**: IBM, Ascendas IT Park
 - **Max Participants**: 50
-- **Registration Deadline**: Feb 20, 2025
+- **Registration Deadline**: Jan 20, 2025
 
 ## Instructions
 
