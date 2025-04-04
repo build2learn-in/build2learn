@@ -2,6 +2,7 @@
 title: 'Build2Learn #24'
 description: 'Join us for an exciting hackathon where innovation meets community!'
 eventDate: '2025-02-22'
+eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-02-20'
 heroImage: '/blog-placeholder-3.jpg'
 registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLSdayj8qdgRAgsJMMUAAutan9zcxdsylZnpm7iaFoT1ZDTvY-A/closedform'
@@ -25,24 +26,18 @@ At build2learn, we believe that magic happens when engineers come together to do
 - **Students**: Looking for mentorship and guidance? We've got you covered!
 - **Mentors**: Want to help others reach their potential? Join us!
 
-### Event Details
-
-- **Date**: Feb 22, 2025
-- **Time**: 9:00 AM - 2:00 PM
-- **Venue**: Kriyadocs
-- **Max Participants**: 50
-- **Registration Deadline**: Feb 20, 2025
+<br />
 
 ## Instructions
 
 1. Come prepared with your project idea
 2. Bring your own laptop
-3. We'll provide food, drinks, and plenty of motivation
-4. Network and collaborate with fellow builders
+3. Network and collaborate with fellow builders
+
+<br />
 
 ## Hackathon Rules
 
 1. Projects must be built during the event
 2. Teams can be 1-3 people
-3. Code must be original and respect open-source licenses
-4. Final presentations will be 5 minutes per team
+3. Final presentations will be 5 minutes per team
