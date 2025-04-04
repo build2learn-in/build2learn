@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventLayout from '../../layouts/EventLayout.astro';
 import EventCard from '../../components/EventCard.astro';
 
 const events = await getCollection('event');
@@ -36,7 +36,7 @@ const upcomingEvents = sortedEvents.filter(event => event.data.status === 'UPCOM
 const pastEvents = sortedEvents.filter(event => event.data.status === 'PAST');
 ---
 
-<BaseLayout title="Events | Build2Learn">
+<EventLayout title="Events | Build2Learn">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Build2Learn Events</h1>
@@ -87,7 +87,7 @@ const pastEvents = sortedEvents.filter(event => event.data.status === 'PAST');
       </div>
     )}
   </div>
-</BaseLayout>
+</EventLayout>
 
 <style>
   /* Add any custom styles here */

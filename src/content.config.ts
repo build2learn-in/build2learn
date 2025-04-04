@@ -40,6 +40,7 @@ const event = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		eventDate: z.coerce.date(),
+		eventTime: z.string(),
 		registrationDeadline: z.coerce.date(),
 		heroImage: z.string().optional(),
 		registration_link: z.string(),

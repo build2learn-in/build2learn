@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventLayout from '../../layouts/EventLayout.astro';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -48,7 +48,7 @@ const statusColors = {
 };
 ---
 
-<BaseLayout title={`${event.data.title} | Build2Learn`}>
+<EventLayout title={`${event.data.title} | Build2Learn`}>
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="relative mb-8">
       <img
@@ -165,4 +165,4 @@ const statusColors = {
       </section>
     )}
   </article>
-</BaseLayout>
+</EventLayout>
