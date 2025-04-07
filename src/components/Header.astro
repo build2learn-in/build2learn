@@ -65,7 +65,9 @@ import { SITE_TITLE } from '../consts';
 	<div class="mobile-menu hidden md:hidden">
 		<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 			<a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+			<a href="/events" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Events</a>
 			<a href="/blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
+			<a href="/project" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Project</a>
 			<a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About</a>
 		</div>
 	</div>
@@ -73,7 +75,7 @@ import { SITE_TITLE } from '../consts';
 
 <script>
 	// Mobile menu toggle
-	document.addEventListener('astro:page-load', () => {
+	document.addEventListener('DOMContentLoaded', () => {
 		const mobileMenuButton = document.querySelector('.mobile-menu-button');
 		const mobileMenu = document.querySelector('.mobile-menu');
 		
