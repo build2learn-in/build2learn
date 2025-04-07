@@ -92,6 +92,13 @@ a:hover {
 p {
 	margin-bottom: 1em;
 }
+.prose {
+	width: 70%;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 1em;
+	color: rgb(var(--gray-dark));
+}
 .prose p {
 	margin-bottom: 2em;
 }
@@ -139,6 +146,9 @@ hr {
 	main {
 		padding: 1em;
 	}
+	.prose {
+		width: 100%;
+	}
 }
 
 .sr-only {
@@ -157,4 +167,11 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+pre {
+	margin-bottom: 1rem;
+}
+article ul, article ol {
+	margin-bottom: 1rem;
 }
