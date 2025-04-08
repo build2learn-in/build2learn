@@ -3,6 +3,15 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ],
   }
 }
