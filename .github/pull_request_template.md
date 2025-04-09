@@ -4,7 +4,7 @@ Please include a summary of the changes and the related issue. Please also inclu
 
 | Title                                                            | Value                                                                                 |
 |------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| **Type**                                                         | Feature / Bugfix / Refactor / Documentation                                           |
+| **Type**                                                         | Feature / Bugfix / Refactor / Documentation / Content change                                           |
 | **Related Issue**                                                | Fixes # (issue)                                                                       |
 | **ENV&nbsp;vars&nbsp;change**                                    | No / Yes &lt;list of env vars added or removed &gt;                                       |
 | **Local&nbsp;testing**                                           | Pending / Done                                                                        |
