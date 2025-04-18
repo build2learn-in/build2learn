@@ -183,3 +183,9 @@ article ul, article ol {
 .card-cover-img{
 	background-color: #ff9a9c;	
 }
+
+@media (min-width:1025px){
+	.container{
+		max-width: 1080px;
+	}
+}
