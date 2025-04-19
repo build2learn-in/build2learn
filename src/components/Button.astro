@@ -1,0 +1,15 @@
+---
+const { text, variant = "primary", href = "#" } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center px-6 py-3 rounded-lg text-white font-medium text-base transition ${
+    variant === "primary"
+      ? "bg-primary hover:bg-red-600 hover:text-white"
+      : "bg-secondary hover:bg-indigo-600"
+  }`}
+>
+  {text}
+  <span class="ml-2">→</span>
+</a>
