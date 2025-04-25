@@ -1,11 +1,11 @@
 ---
 name: Project Submission
 about: Submit your Build2Learn project for a LinkedIn feature
-title: ''
-labels: ''
-assignees: ''
-
+title: '[Project]: '
+labels: ['project-submission', 'community']
+assignees: ['sureshdsk','bhavaniravi']
 ---
+
 
 ### 👥 Name(s) of the participant(s):
 <!-- Mention all contributors involved in the project -->
