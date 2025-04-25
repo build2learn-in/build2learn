@@ -1,0 +1,55 @@
+---
+// No frontmatter needed
+const images = [
+  '/images/hero-banner1.webp',
+  '/images/hero-banner2.webp',
+  '/images/hero-banner3.webp',
+  '/images/hero-banner4.webp',
+  '/images/hero-banner5.webp',
+  '/images/hero-banner6.webp',
+];
+---
+
+<style>
+  .fade-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .fade-slider img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 9s infinite;
+  }
+
+  /* Show each image at different time offsets */
+  .fade-slider img:nth-child(1) { animation-delay: 0s; }
+  .fade-slider img:nth-child(2) { animation-delay: 3s; }
+  .fade-slider img:nth-child(3) { animation-delay: 6s; }
+  .fade-slider img:nth-child(4) { animation-delay: 9s; }
+  .fade-slider img:nth-child(5) { animation-delay: 12s; }
+  .fade-slider img:nth-child(6) { animation-delay: 15s; }
+
+  @keyframes fade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    30%  { opacity: 1; }
+    40%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+</style>
+
+<div class="fade-slider">
+  {images.map((src) => (
+    <img fetchpriority="high" loading="eager" alt="build2learn-event" src={src} />
+  ))}
+</div>

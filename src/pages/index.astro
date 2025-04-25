@@ -5,6 +5,7 @@ import Button from '../components/Button.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import HeroSmoothSlider from '../components/HeroSmoothSlider.astro';
 ---
 
 <!doctype html>
@@ -46,7 +47,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<div class="md:w-1/2 flex justify-center">
 						<div class="relative w-full max-w-md">
 							<div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-							<img src="/blog-placeholder-2.jpg" alt="Collaboration" class="relative z-10 rounded-lg shadow-2xl object-cover w-full max-w-md mx-auto" />
+							<!-- <img src="/images/hero-banner.webp" fetchpriority="high" loading="eager" alt="Collaboration" class="relative z-10 rounded-lg shadow-2xl object-cover w-full max-w-md mx-auto" /> -->
+							<HeroSmoothSlider />
 						</div>
 					</div>
 				</div>
