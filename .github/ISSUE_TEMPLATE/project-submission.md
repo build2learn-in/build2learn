@@ -3,7 +3,7 @@ name: Project Submission
 about: Submit your Build2Learn project for a LinkedIn feature
 title: '[Project]: '
 labels: ['project-submission', 'community']
-assignees: ['sureshdsk','bhavaniravi']
+assignees: ['sureshdsk','bhavaniravi','shinysu']
 ---
 
 
