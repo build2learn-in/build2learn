@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply font-sans text-dark-900 bg-white;
+}
+
+
 /*
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
@@ -112,11 +117,6 @@ input {
 table {
 	width: 100%;
 }
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
@@ -174,4 +174,13 @@ pre {
 }
 article ul, article ol {
 	margin-bottom: 1rem;
+}
+.card-cover-img{
+	background-color: #ff9a9c;	
+}
+
+@media (min-width:1025px){
+	.container{
+		max-width: 1080px;
+	}
 }

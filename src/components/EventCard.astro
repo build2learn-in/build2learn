@@ -18,13 +18,13 @@ const formattedDate = eventDate.toLocaleDateString('en-US', {
 });
 ---
 
-<div class="event-card group hover:shadow-lg transition-shadow duration-200">
+<div class="event-card group hover:shadow-lg transition-shadow duration-200 bg-white rounded-2xl shadow p-5 space-y-2">
   <a href={`/events/${slug}`} class="block">
     <div class="relative">
       <img
         src={heroImage || '/blog-placeholder-3.jpg'}
         alt={title}
-        class="w-full h-48 object-cover rounded-t-lg"
+        class="w-full h-48 object-cover rounded-t-lg card-cover-img"
       />
       <div class={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium
         ${status === 'UPCOMING' ? 'bg-green-500 text-white' :
@@ -33,25 +33,26 @@ const formattedDate = eventDate.toLocaleDateString('en-US', {
         {status}
       </div>
     </div>
-    <div class="p-6">
-      <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+    <div class="pt-6">
+      <h5 class="text-xl mb-2 group-hover:text-blue-600 transition-colors">
         {title}
-      </h3>
-      <p class="text-gray-600 mb-4 line-clamp-2">
+      </h5>
+      <p class="text-p3 text-gray-600 mb-4 line-clamp-2">
         {description}
       </p>
+      
       <div class="flex items-center text-sm text-gray-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
-        {formattedDate}
+        <span class="text-p3">{formattedDate}</span>
       </div>
       <div class="flex items-center text-sm text-gray-500 mt-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-        {venue}
+        <span class="text-p3">{venue}</span>
       </div>
     </div>
   </a>

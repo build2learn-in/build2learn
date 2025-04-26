@@ -1,0 +1,177 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Button from '../components/Button.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={"404 Not Found"} description={SITE_DESCRIPTION} />
+		<style>
+			.error-container {
+				min-height: 70vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				padding: 2rem;
+			}
+			.h1-404 {
+				font-size: 8rem;
+				font-weight: 700;
+				margin: 0;
+				line-height: 1;
+				background: linear-gradient(90deg, #FF3737, #FF3737);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+			}
+			.error-message {
+				font-size: 2rem;
+				font-weight: 500;
+				margin-top: 1rem;
+				margin-bottom: 2rem;
+			}
+			.error-description {
+				max-width: 600px;
+				margin: 0 auto 2rem;
+				font-size: 1.125rem;
+				color: #4b5563;
+			}
+			.home-button {
+				display: inline-block;
+				background-color: #3b82f6;
+				color: white;
+				font-weight: 500;
+				padding: 0.625rem 1.25rem;
+				border-radius: 0.375rem;
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+			.home-button:hover {
+				background-color: #2563eb;
+                color:#fff;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			}
+			
+			/* Animation container */
+			.animation-container {
+				width: 280px;
+				height: 280px;
+				margin: 2rem auto;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body class="bg-white text-gray-800">
+		<Header />
+		
+		<main class="error-container">
+			<h1 class="font-bold h1-404 text-primary">404</h1>
+			<h2 class="error-message">Page Not Found</h2>
+			<p class="error-description">
+				Looks like the code for this page got lost in the development process.
+				Our robots are searching through the codebase to find what you're looking for.
+			</p>
+			
+			<div class="animation-container">
+				<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+					<!-- Grid background -->
+					<defs>
+						<pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+							<path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+						</pattern>
+					</defs>
+					<rect width="100%" height="100%" fill="url(#grid)" />
+					
+					<!-- Robot body -->
+					<rect id="robot-body" x="85" y="90" width="70" height="80" rx="10" fill="#3b82f6" stroke="#2563eb" stroke-width="2">
+						<animate attributeName="y" values="90;85;90" dur="2s" repeatCount="indefinite" />
+					</rect>
+					
+					<!-- Robot head -->
+					<rect id="robot-head" x="95" y="50" width="50" height="40" rx="5" fill="#3b82f6" stroke="#2563eb" stroke-width="2">
+						<animate attributeName="y" values="50;45;50" dur="2s" repeatCount="indefinite" />
+					</rect>
+					
+					<!-- Robot eyes -->
+					<circle class="eye" cx="110" cy="70" r="8" fill="white" stroke="#2563eb" stroke-width="1">
+						<animate attributeName="cy" values="70;65;70" dur="2s" repeatCount="indefinite" />
+					</circle>
+					<circle class="eye" cx="130" cy="70" r="8" fill="white" stroke="#2563eb" stroke-width="1">
+						<animate attributeName="cy" values="70;65;70" dur="2s" repeatCount="indefinite" />
+					</circle>
+					
+					<!-- Robot pupils -->
+					<circle class="pupil" cx="110" cy="70" r="3" fill="#2563eb">
+						<animate attributeName="cy" values="70;65;70" dur="2s" repeatCount="indefinite" />
+						<animate attributeName="cx" values="110;112;108;110" dur="3s" repeatCount="indefinite" />
+					</circle>
+					<circle class="pupil" cx="130" cy="70" r="3" fill="#2563eb">
+						<animate attributeName="cy" values="70;65;70" dur="2s" repeatCount="indefinite" />
+						<animate attributeName="cx" values="130;132;128;130" dur="3s" repeatCount="indefinite" />
+					</circle>
+					
+					<!-- Robot antenna -->
+					<line x1="120" y1="50" x2="120" y2="35" stroke="#2563eb" stroke-width="2">
+						<animate attributeName="y1" values="50;45;50" dur="2s" repeatCount="indefinite" />
+						<animate attributeName="y2" values="35;30;35" dur="2s" repeatCount="indefinite" />
+					</line>
+					<circle cx="120" cy="30" r="5" fill="#ef4444">
+						<animate attributeName="cy" values="30;25;30" dur="2s" repeatCount="indefinite" />
+						<animate attributeName="fill" values="#ef4444;#f87171;#ef4444" dur="1s" repeatCount="indefinite" />
+					</circle>
+					
+					<!-- Robot arms -->
+					<line x1="85" y1="110" x2="55" y2="130" stroke="#2563eb" stroke-width="4" stroke-linecap="round">
+						<animate attributeName="x2" values="55;50;55" dur="3s" repeatCount="indefinite" />
+						<animate attributeName="y2" values="130;120;130" dur="3s" repeatCount="indefinite" />
+					</line>
+					<line x1="155" y1="110" x2="185" y2="130" stroke="#2563eb" stroke-width="4" stroke-linecap="round">
+						<animate attributeName="x2" values="185;190;185" dur="3s" repeatCount="indefinite" />
+						<animate attributeName="y2" values="130;120;130" dur="3s" repeatCount="indefinite" />
+					</line>
+					
+					<!-- Robot legs -->
+					<line x1="100" y1="170" x2="90" y2="200" stroke="#2563eb" stroke-width="5" stroke-linecap="round">
+						<animate attributeName="x2" values="90;95;90" dur="2s" repeatCount="indefinite" />
+					</line>
+					<line x1="140" y1="170" x2="150" y2="200" stroke="#2563eb" stroke-width="5" stroke-linecap="round">
+						<animate attributeName="x2" values="150;145;150" dur="2s" repeatCount="indefinite" />
+					</line>
+					
+					<!-- Code search animation -->
+					<text x="45" y="115" font-family="monospace" font-size="8" fill="#8b5cf6">
+						<tspan x="45" dy="0">404</tspan>
+						<animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+					</text>
+					<text x="170" y="125" font-family="monospace" font-size="8" fill="#8b5cf6">
+						<tspan x="170" dy="0">page?</tspan>
+						<animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+					</text>
+					<text x="120" y="200" font-family="monospace" font-size="8" fill="#8b5cf6" text-anchor="middle">
+						<tspan x="120" dy="0">Build2Learn</tspan>
+						<animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+					</text>
+				</svg>
+			</div>
+			
+			<Button text="Back to Home" href="/" variant="primary" />
+            
+		</main>
+		
+		<Footer />
+		
+		<script>
+			// Add any interactive JavaScript here
+			document.addEventListener('DOMContentLoaded', () => {
+				console.log('404 page loaded');
+			});
+		</script>
+	</body>
+</html>
