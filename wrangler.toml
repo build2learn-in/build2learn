@@ -1,0 +1,9 @@
+name = build2learn"
+type = "pages"
+
+compatibility_date = "2025-03-25"
+
+build = {
+  command = "npx astro build",
+  output = "dist"
+}
