@@ -1,11 +1,11 @@
 ---
 name: Project Submission
 about: Submit your Build2Learn project for a LinkedIn feature
-title: '[Project]: '
-labels: ['project-submission', 'community']
-assignees: ['sureshdsk','bhavaniravi','shinysu']
----
+title: "[Project]: "
+labels: ''
+assignees: bhavaniravi, shinysu, sureshdsk
 
+---
 
 ### 👥 Name(s) of the participant(s):
 <!-- Mention all contributors involved in the project -->
@@ -30,3 +30,6 @@ assignees: ['sureshdsk','bhavaniravi','shinysu']
 
 ### 💬 Anything you want us to mention on LinkedIn?
 <!-- A fun fact, challenge you faced, something unique about your build or team story -->
+
+### 💬 Provide LinkedIn URL of all the people in your team
+<--https://linkedin.com/in/{member_name}/ -->
