@@ -15,7 +15,7 @@ body {
  */
 
 :root {
-	--accent: #2337ff;
+	--accent:rgb(6, 6, 11);
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
@@ -174,6 +174,12 @@ pre {
 }
 article ul, article ol {
 	margin-bottom: 1rem;
+}
+article ul{
+	list-style: disc;
+}
+article ol{
+	list-style: decimal;
 }
 .card-cover-img{
 	background-color: #ff9a9c;	

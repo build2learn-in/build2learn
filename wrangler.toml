@@ -1,0 +1,5 @@
+name = "build2learn"
+pages_build_output_dir = "./dist"
+
+compatibility_date = "2025-03-25"
+

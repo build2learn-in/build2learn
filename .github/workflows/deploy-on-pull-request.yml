@@ -1,6 +1,7 @@
 name: Deploy to CF Pages on Pull Request
 
 on:
+  push:
   pull_request:
     types: [opened, updated]
 
@@ -9,13 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npx astro build
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          environment: preview
+          wranglerVersion: "4.14.1"
+          # packageManager: pnpm
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      - name: print deployment-url
-        env:
-          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
-        run: echo $DEPLOYMENT_URL
+          command: pages deploy --project-name=build2learn --branch=${{ github.ref_name }}
+      # - name: print wrangler command output
+      #   env:
+      #     CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
+      #   run: echo $CMD_OUTPUT
+      # - name: print deployment-url
+      #   env:
+      #     DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+      #   run: echo $DEPLOYMENT_URL
