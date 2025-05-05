@@ -176,7 +176,7 @@ article ul, article ol {
 	margin-bottom: 1rem;
 }
 article ul{
-	list-style: square;
+	list-style: disc;
 }
 article ol{
 	list-style: decimal;

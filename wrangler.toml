@@ -1,9 +1,5 @@
-name = build2learn"
-type = "pages"
+name = "build2learn"
+pages_build_output_dir = "./dist"
 
 compatibility_date = "2025-03-25"
 
-build = {
-  command = "npx astro build",
-  output = "dist"
-}
