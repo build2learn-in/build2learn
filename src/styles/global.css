@@ -185,8 +185,18 @@ article ol{
 	background-color: #ff9a9c;	
 }
 
+.home-page-blue-banner{
+	margin-left: 12px;
+	margin-right: 12px;
+	border-radius: 10px;	
+}
 @media (min-width:1025px){
 	.container{
 		max-width: 1080px;
+	}
+	.home-page-blue-banner{
+		min-height: 512px;
+		margin-left: 24px;
+		margin-right: 24px;
 	}
 }
