@@ -1,0 +1,614 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "title": "Offline-First Expense Splitter",
+        "description": "Settle group bills offline using IndexedDB; syncs when online. Supports OCR for receipts and one-tap settle links via UPI/PayTM.",
+        "problem_solved": "Settling group bills in hostels, trips, or areas with flaky Internet.",
+        "features": [
+          "IndexedDB offline-first",
+          "Receipt OCR for totals and line items",
+          "UPI/PayTM settle links"
+        ],
+        "tags": ["web", "offline-first", "finance", "ocr"],
+        "status": "Planned",
+        "tech_stack": ["JavaScript", "IndexedDB", "OCR API"]
+      },
+      {
+        "id": 2,
+        "title": "Tweet-Length Mental-Health Journal",
+        "description": "An anonymous 280-character journal with streak tracking, helpline suggestions, and charts.",
+        "problem_solved": "Encourages mental health journaling in a lightweight, social-media-like format.",
+        "features": [
+          "Anonymous journal entries",
+          "280 character limit",
+          "Charts streaks",
+          "Helpline suggestions"
+        ],
+        "tags": ["mental health", "journal", "supabase", "charts"],
+        "status": "WIP",
+        "tech_stack": ["Supabase", "Chart.js", "Magic Link Auth"]
+      },
+      {
+        "id": 3,
+        "title": "Neighbourhood Water-Level SMS Alert",
+        "description": "ESP32-based water level sensor that sends SMS alerts when drains rise beyond a threshold.",
+        "problem_solved": "Warns residents of potential flooding in their neighborhood.",
+        "features": [
+          "ESP32 + ultrasonic sensor",
+          "Twilio SMS alerts",
+          "Simple Flask webhook"
+        ],
+        "tags": ["iot", "sms", "flood", "alert"],
+        "status": "WIP",
+        "tech_stack": ["ESP32", "Python Flask", "Twilio"]
+      },
+      {
+        "id": 4,
+        "title": "Resume-to-Skill-Gap Analyzer",
+        "description": "Upload a resume and get a skills-gap analysis compared to a target job description.",
+        "problem_solved": "Helps job seekers understand what skills they’re missing for a role.",
+        "features": [
+          "PDF parsing",
+          "OpenAI embeddings",
+          "HTML skill-gap report"
+        ],
+        "tags": ["career", "resume", "ai", "job search"],
+        "status": "Planned",
+        "tech_stack": ["Python", "OpenAI Embeddings", "Serverless Functions"]
+      },
+      {
+        "id": 5,
+        "title": "Instant Classroom Poll via QR Code",
+        "description": "Teachers launch polls, students vote via QR scan, results animate live.",
+        "problem_solved": "Makes classroom participation simple and real-time.",
+        "features": [
+          "One-click poll creation",
+          "QR-based student access",
+          "Real-time Socket.io results"
+        ],
+        "tags": ["education", "polls", "socket.io"],
+        "status": "Completed",
+        "tech_stack": ["Node.js", "Socket.io", "QR Code Generator"]
+      },
+      {
+        "id": 6,
+        "title": "Zero-Config Live Subtitles for Meetings",
+        "description": "Captures mic audio, streams to Whisper API, and shows live captions in-browser.",
+        "problem_solved": "Makes meetings more inclusive with live captions.",
+        "features": [
+          "Mic audio capture",
+          "Whisper API streaming",
+          "Caption overlay in browser"
+        ],
+        "tags": ["accessibility", "speech-to-text", "whisper"],
+        "status": "WIP",
+        "tech_stack": ["Web Audio API", "OpenAI Whisper", "JavaScript"]
+      },
+      {
+        "id": 7,
+        "title": "Battery-Saver Dark-Mode Switcher",
+        "description": "Browser extension forces dark mode when battery < 40%.",
+        "problem_solved": "Extends laptop battery life while browsing.",
+        "features": [
+          "Detects battery status",
+          "Applies CSS dark filter",
+          "Minimal Manifest V3 extension"
+        ],
+        "tags": ["browser extension", "dark mode", "battery"],
+        "status": "Planned",
+        "tech_stack": ["JavaScript", "Chrome Extension API"]
+      },
+      {
+        "id": 8,
+        "title": "Blood Bank Stock Map",
+        "description": "Scrapes blood bank sites and maps available stock (e.g., B-ve) hourly.",
+        "problem_solved": "Helps people quickly locate critical blood supplies.",
+        "features": [
+          "Web scraping",
+          "Leaflet map visualization",
+          "Hourly refresh"
+        ],
+        "tags": ["healthcare", "blood bank", "maps"],
+        "status": "Completed",
+        "tech_stack": ["JavaScript", "Leaflet.js", "Scraper"]
+      },
+      {
+        "id": 9,
+        "title": "Menuless Restaurant Order",
+        "description": "NFC sticker → menu on phone → orders recorded in Google Sheets.",
+        "problem_solved": "Removes need for restaurant POS or physical menus.",
+        "features": [
+          "NFC tap menu access",
+          "Photo-based dish menu",
+          "Google Sheets integration"
+        ],
+        "tags": ["restaurant", "nfc", "orders"],
+        "status": "WIP",
+        "tech_stack": ["JavaScript", "Google Sheets API", "NFC"]
+      },
+      {
+        "id": 10,
+        "title": "AR-Based Furniture Fit-Checker",
+        "description": "Lets users view preset 3D furniture models (sofa, table, shelf) in their room.",
+        "problem_solved": "Helps buyers visualize furniture size before purchase.",
+        "features": [
+          "WebXR support",
+          "Preset 3D models",
+          "Scale overlay in AR"
+        ],
+        "tags": ["ar", "furniture", "shopping"],
+        "status": "Planned",
+        "tech_stack": ["WebXR", "Three.js"]
+      },
+
+      {
+        "id": 11,
+        "title": "Meme-a-Day Generator",
+        "description": "Upload a selfie and get a captioned meme using trending templates via Imgflip API.",
+        "problem_solved": "Makes daily meme creation fun and effortless.",
+        "features": [
+          "Selfie upload",
+          "Trending template fetch",
+          "Auto-caption generation"
+        ],
+        "tags": ["fun", "meme", "api"],
+        "status": "WIP",
+        "tech_stack": ["JavaScript", "Imgflip API"]
+      },
+      {
+        "id": 12,
+        "title": "Voice-Controlled Pomodoro",
+        "description": "Start and stop 25-minute timers with voice commands.",
+        "problem_solved": "Hands-free productivity booster for focus sessions.",
+        "features": [
+          "Speech recognition with ML5.js",
+          "Pomodoro timer",
+          "Voice commands like 'start focus'"
+        ],
+        "tags": ["productivity", "voice", "pomodoro"],
+        "status": "Planned",
+        "tech_stack": ["ML5.js", "Web Speech API"]
+      },
+      {
+        "id": 13,
+        "title": "Local Language CAPTCHA Buster",
+        "description": "Recreates CAPTCHA words in Tamil/Hindi for accessibility.",
+        "problem_solved": "Improves accessibility for non-English speakers.",
+        "features": [
+          "CAPTCHA generator",
+          "Tamil/Hindi word display",
+          "Accessibility focus"
+        ],
+        "tags": ["accessibility", "captcha", "localization"],
+        "status": "Planned",
+        "tech_stack": ["Python", "TensorFlow", "Language Data"]
+      },
+      {
+        "id": 14,
+        "title": "GitHub PR Roulette",
+        "description": "Spins a wheel of open issues in an org; random repo gets live help.",
+        "problem_solved": "Makes open-source contribution fun and fair.",
+        "features": [
+          "GitHub API integration",
+          "Random issue selector",
+          "Live contribution prompts"
+        ],
+        "tags": ["github", "opensource", "fun"],
+        "status": "Completed",
+        "tech_stack": ["JavaScript", "GitHub API"]
+      },
+      {
+        "id": 15,
+        "title": "Tweet-to-Poster SVG",
+        "description": "Turns any tweet into a printable SVG poster within 5 seconds.",
+        "problem_solved": "Quickly convert tweets into beautiful poster graphics.",
+        "features": [
+          "Twitter embed parser",
+          "SVG generator",
+          "Download option"
+        ],
+        "tags": ["twitter", "svg", "poster"],
+        "status": "WIP",
+        "tech_stack": ["JavaScript", "SVG.js"]
+      },
+      {
+        "id": 16,
+        "title": "React Error Buddy",
+        "description": "Paste a stack trace and get GPT-suggested fixes with docs links.",
+        "problem_solved": "Reduces developer debugging time with instant suggestions.",
+        "features": [
+          "Stack trace input",
+          "GPT-powered suggestions",
+          "Docs link integration"
+        ],
+        "tags": ["react", "debugging", "ai"],
+        "status": "Planned",
+        "tech_stack": ["React", "OpenAI API"]
+      },
+      {
+        "id": 17,
+        "title": "BPM-Sync Music Lightstrip",
+        "description": "Controls RGB LED lights synced to song tempo using Web Bluetooth.",
+        "problem_solved": "Creates immersive music-light experiences at home.",
+        "features": [
+          "Web Bluetooth control",
+          "AudioContext BPM detection",
+          "RGB LED syncing"
+        ],
+        "tags": ["music", "iot", "led"],
+        "status": "WIP",
+        "tech_stack": ["Web Bluetooth", "AudioContext", "RGB LED"]
+      },
+      {
+        "id": 18,
+        "title": "Chess-Move-GIF Maker",
+        "description": "Enter moves and output an animated GIF of the game.",
+        "problem_solved": "Easily share chess games as animations.",
+        "features": [
+          "PGN move input",
+          "Animated GIF generation",
+          "Purely client-side"
+        ],
+        "tags": ["chess", "gif", "animation"],
+        "status": "Completed",
+        "tech_stack": ["JavaScript", "GIF.js"]
+      },
+      {
+        "id": 19,
+        "title": "Emoji URL Shortener",
+        "description": "Maps URLs to emoji slugs and generates shareable QR codes.",
+        "problem_solved": "Makes URL sharing fun and visually unique.",
+        "features": [
+          "Emoji-based short links",
+          "QR code generator",
+          "Redirect service"
+        ],
+        "tags": ["emoji", "url shortener", "fun"],
+        "status": "WIP",
+        "tech_stack": ["JavaScript", "QR Code API"]
+      },
+      {
+        "id": 20,
+        "title": "How It Started vs How It’s Going Collage",
+        "description": "Upload two pictures and generate a viral meme collage template automatically.",
+        "problem_solved": "Simplifies creating the popular meme format.",
+        "features": [
+          "Two-picture upload",
+          "Collage template",
+          "Export/share"
+        ],
+        "tags": ["meme", "collage", "fun"],
+        "status": "Completed",
+        "tech_stack": ["JavaScript", "Canvas API"]
+      },
+
+      {
+        "id": 21,
+        "title": "Carbon-Footprint SMS Bot",
+        "description": "Twilio texting bot that calculates daily carbon footprint factors using Airtable data.",
+        "problem_solved": "Brings sustainability awareness to users with feature phones.",
+        "features": [
+          "SMS interaction",
+          "Carbon factor lookup",
+          "Weekly footprint report"
+        ],
+        "tags": ["sustainability", "sms", "climate"],
+        "status": "WIP",
+        "tech_stack": ["Twilio", "Airtable", "Python"]
+      },
+      {
+        "id": 22,
+        "title": "Lost-Pet Heatmap",
+        "description": "Crowdsourced pet sighting reports displayed on a real-time Firebase map.",
+        "problem_solved": "Helps communities track and reunite lost pets quickly.",
+        "features": [
+          "Firebase realtime map",
+          "Crowdsourced pet sightings",
+          "Mobile-only PWA"
+        ],
+        "tags": ["pets", "community", "firebase"],
+        "status": "Planned",
+        "tech_stack": ["Firebase", "Leaflet.js", "PWA"]
+      },
+      {
+        "id": 23,
+        "title": "Offline Disaster Info Hub",
+        "description": "Caches disaster handbooks in a service worker for offline use.",
+        "problem_solved": "Provides vital info during disasters even without Internet.",
+        "features": [
+          "Service worker caching",
+          "Disaster handbook PDFs",
+          "Airplane-mode demo"
+        ],
+        "tags": ["disaster", "offline", "pwa"],
+        "status": "Completed",
+        "tech_stack": ["JavaScript", "Service Worker", "PWA"]
+      },
+      {
+        "id": 24,
+        "title": "Smart Cane Add-On",
+        "description": "Ultrasonic sensor add-on for a cane that buzzes when detecting obstacles.",
+        "problem_solved": "Increases mobility and safety for visually impaired users.",
+        "features": [
+          "Arduino Nano integration",
+          "Ultrasonic sensor detection",
+          "Buzzer feedback"
+        ],
+        "tags": ["hardware", "iot", "accessibility"],
+        "status": "WIP",
+        "tech_stack": ["Arduino Nano", "Ultrasonic Sensor", "C++"]
+      },
+      {
+        "id": 25,
+        "title": "Rural Doctor Scheduler",
+        "description": "Simplifies scheduling for rural doctors with Google Calendar and SMS fallback.",
+        "problem_solved": "Helps rural clinics efficiently manage doctor availability.",
+        "features": [
+          "Event scheduling",
+          "Google Calendar sync",
+          "SMS fallback invites"
+        ],
+        "tags": ["healthcare", "calendar", "sms"],
+        "status": "Planned",
+        "tech_stack": ["React", "Google Calendar API", "Twilio"]
+      },
+      {
+        "id": 26,
+        "title": "Plant-Watering Slackbot",
+        "description": "Reads soil sensor data via ESP8266 and posts Slack reminders.",
+        "problem_solved": "Automates plant care with IoT and team engagement.",
+        "features": [
+          "Soil sensor integration",
+          "Slack notifications",
+          "Funny GIF responses"
+        ],
+        "tags": ["iot", "slack", "plants"],
+        "status": "WIP",
+        "tech_stack": ["ESP8266", "Slack API", "Python"]
+      },
+      {
+        "id": 27,
+        "title": "E-Waste Pick-Up Matcher",
+        "description": "Connects households with NGOs for e-waste collection using pin codes.",
+        "problem_solved": "Promotes responsible disposal of electronic waste.",
+        "features": [
+          "Pin-code matcher",
+          "NGO database",
+          "No-login form"
+        ],
+        "tags": ["ewaste", "ngo", "sustainability"],
+        "status": "Completed",
+        "tech_stack": ["React", "Firebase", "Node.js"]
+      },
+      {
+        "id": 28,
+        "title": "Local-Language Wikipedia Audio",
+        "description": "Converts Wikipedia articles into local-language audio with gTTS.",
+        "problem_solved": "Increases inclusivity for non-readers and local language speakers.",
+        "features": [
+          "Article scraping",
+          "Text-to-speech with gTTS",
+          "Audio file export"
+        ],
+        "tags": ["wikipedia", "tts", "localization"],
+        "status": "Planned",
+        "tech_stack": ["Python", "gTTS", "BeautifulSoup"]
+      },
+      {
+        "id": 29,
+        "title": "Food-Expiry Barcode Scanner",
+        "description": "Scans food barcodes and alerts on expiry, pushing discards to food-sharing feeds.",
+        "problem_solved": "Helps reduce household food waste.",
+        "features": [
+          "Barcode scanning",
+          "Expiry detection",
+          "Food-share integration"
+        ],
+        "tags": ["food", "waste", "barcode"],
+        "status": "WIP",
+        "tech_stack": ["ML Kit", "Firebase", "React Native"]
+      },
+      {
+        "id": 30,
+        "title": "Pay-It-Forward QR Voucher",
+        "description": "Generates one-time QR meal tokens for street vendors with a built-in ledger.",
+        "problem_solved": "Supports feeding initiatives for underprivileged communities.",
+        "features": [
+          "One-time QR vouchers",
+          "Ledger tracking",
+          "Vendor redemption"
+        ],
+        "tags": ["social good", "qr", "community"],
+        "status": "Completed",
+        "tech_stack": ["React", "Firebase", "QR Code API"]
+      },
+
+      {
+        "id": 31,
+        "title": "One-Click Class Attendance",
+        "description": "Capture a single classroom photo, auto-mark attendance, and sync to a database.",
+        "problem_solved": "Saves time for teachers in marking daily attendance.",
+        "features": [
+          "Face detection",
+          "Attendance logging",
+          "Database sync"
+        ],
+        "tags": ["education", "attendance", "ai"],
+        "status": "WIP",
+        "tech_stack": ["Python", "OpenCV", "Firebase"]
+      },
+      {
+        "id": 32,
+        "title": "AI-Powered Local Traffic Predictor",
+        "description": "Forecasts traffic in busy cities using real-time public API data.",
+        "problem_solved": "Helps commuters avoid delays by suggesting better routes or times.",
+        "features": [
+          "Google Maps API data pull",
+          "1-hour traffic forecasts",
+          "Color-coded route map"
+        ],
+        "tags": ["traffic", "maps", "ai"],
+        "status": "Planned",
+        "tech_stack": ["Google Maps API", "Python", "React"]
+      },
+      {
+        "id": 33,
+        "title": "Virtual Language Exchange Buddy",
+        "description": "Connects users for quick language practice sessions via chat or voice.",
+        "problem_solved": "Enables cultural exchange and language learning.",
+        "features": [
+          "User matching algorithm",
+          "WebRTC voice calls",
+          "Text-to-speech pronunciation"
+        ],
+        "tags": ["language", "chat", "webrtc"],
+        "status": "Completed",
+        "tech_stack": ["WebRTC", "React", "Supabase"]
+      },
+      {
+        "id": 34,
+        "title": "Eco-Friendly Habit Tracker",
+        "description": "Encourages sustainable daily habits and tracks personal eco-score.",
+        "problem_solved": "Helps individuals measure and reduce their carbon footprint.",
+        "features": [
+          "Daily habit logging",
+          "Weekly eco-score",
+          "Sensor integration for steps"
+        ],
+        "tags": ["climate", "tracker", "habits"],
+        "status": "WIP",
+        "tech_stack": ["React Native", "Chart.js", "Firebase"]
+      },
+      {
+        "id": 35,
+        "title": "Quick Recipe Improviser",
+        "description": "Suggests recipes based on ingredients you already have.",
+        "problem_solved": "Reduces food waste and simplifies cooking decisions.",
+        "features": [
+          "Ingredient scanning",
+          "Recipe API matching",
+          "Substitution suggestions"
+        ],
+        "tags": ["food", "recipe", "waste"],
+        "status": "Planned",
+        "tech_stack": ["React", "Edamam API", "Firebase"]
+      },
+      {
+        "id": 36,
+        "title": "Community Event Scheduler",
+        "description": "Simple event creation with RSVPs, SMS reminders, and calendar view.",
+        "problem_solved": "Makes organizing local events accessible without complex tools.",
+        "features": [
+          "Google Form integration",
+          "Twilio SMS reminders",
+          "Web calendar view"
+        ],
+        "tags": ["events", "community", "calendar"],
+        "status": "Completed",
+        "tech_stack": ["React", "Twilio", "Google Calendar API"]
+      },
+      {
+        "id": 37,
+        "title": "Mood-Based Playlist Curator",
+        "description": "Creates playlists based on user mood using sentiment analysis.",
+        "problem_solved": "Improves well-being with personalized music selections.",
+        "features": [
+          "Mood input with emojis",
+          "Sentiment analysis",
+          "Spotify playlist generation"
+        ],
+        "tags": ["music", "playlist", "sentiment"],
+        "status": "WIP",
+        "tech_stack": ["Spotify API", "React", "Python"]
+      },
+      {
+        "id": 38,
+        "title": "Smart Water Usage Monitor",
+        "description": "Logs household water use with sensors and gives conservation tips.",
+        "problem_solved": "Promotes water conservation in regions facing scarcity.",
+        "features": [
+          "IoT water sensors",
+          "Usage alerts",
+          "Chart visualization"
+        ],
+        "tags": ["water", "iot", "environment"],
+        "status": "Planned",
+        "tech_stack": ["ESP8266", "React", "Firebase"]
+      },
+      {
+        "id": 39,
+        "title": "AR City Landmark Explorer",
+        "description": "Overlays facts on landmarks through a phone camera using AR.js.",
+        "problem_solved": "Creates engaging educational tours for local tourism.",
+        "features": [
+          "AR.js overlay",
+          "Wikipedia integration",
+          "Offline pre-loaded data"
+        ],
+        "tags": ["ar", "tourism", "education"],
+        "status": "WIP",
+        "tech_stack": ["AR.js", "React", "Wikipedia API"]
+      },
+      {
+        "id": 40,
+        "title": "Budget Meal Planner",
+        "description": "Generates affordable meal plans based on user budget and preferences.",
+        "problem_solved": "Supports students and families in planning affordable meals.",
+        "features": [
+          "Budget input",
+          "Weekly meal plan generation",
+          "Shopping list with cost estimates"
+        ],
+        "tags": ["food", "budget", "planner"],
+        "status": "Completed",
+        "tech_stack": ["React", "Firebase", "LocalStorage"]
+      },
+      {
+        "id": 41,
+        "title": "WhatsApp Psychometric Career Advisor",
+        "description": "Chatbot delivers psychometric career guidance to students via WhatsApp or SMS.",
+        "problem_solved": "Gives underprivileged students access to career self-assessment tools in local languages.",
+        "features": [
+          "Likert-scale questionnaire",
+          "Trait scoring (e.g., extroversion, creativity)",
+          "Career suggestions with PDF report"
+        ],
+        "tags": ["career", "education", "whatsapp", "ai"],
+        "status": "WIP",
+        "tech_stack": ["Twilio WhatsApp API", "Python", "PDFKit"]
+      },
+      {
+        "id": 42,
+        "title": "SMS/WhatsApp Scholarship Application Bot",
+        "description": "Guides students through scholarship applications via WhatsApp or SMS with document uploads.",
+        "problem_solved": "Removes barriers for low-tech users applying for scholarships.",
+        "features": [
+          "Step-by-step application flow",
+          "Duplicate prevention via fuzzy matching",
+          "Application ID assignment and scoring"
+        ],
+        "tags": ["scholarship", "chatbot", "education"],
+        "status": "Planned",
+        "tech_stack": ["Twilio", "Python", "Firebase"]
+      },
+      {
+        "id": 43,
+        "title": "Student Career Profile Analyzer",
+        "description": "Generates career-aligned student profiles from intelligences, interests, and traits.",
+        "problem_solved": "Helps students identify career paths that match their strengths.",
+        "features": [
+          "Quiz for intelligences, interests, and traits",
+          "Personalized career profile generation",
+          "Shareable PDF report"
+        ],
+        "tags": ["career", "profile", "students"],
+        "status": "Completed",
+        "tech_stack": ["React", "Python", "PDFKit"]
+      }
+    ]
+  }
+
+
+
+     
