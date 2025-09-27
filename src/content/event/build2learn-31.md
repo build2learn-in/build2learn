@@ -6,7 +6,7 @@ eventTime: '9:00 AM - 2:00 PM'
 heroImage: '/blog-placeholder-3.jpg'
 venue: 'Lumel Technologies'
 registrationDeadline: '2025-09-26'
-registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLScsui1r6e6PsgDyOycPiIAY_rz9i8vQ02MnmikPw2ESVG830g/closedform'
+registration_link: 'https://luma.com/2ljn8fzm?tk=GFkSBa'
 venue_address: ' East Wing, 8th Floor, R&D Hub, Block-A, GLOBAL INFOCITY PARK, 40, MGR Main Rd, Kodandarama Nagar, Perungudi, Chennai, Tamil Nadu 600096'
 venue_location: 'https://maps.app.goo.gl/bat2tJH6VLdehG8v7'
 maxParticipants: 50
