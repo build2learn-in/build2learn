@@ -1,5 +1,5 @@
 ---
-import EventLayout from '../layouts/EventLayout.astro';
+import IdeasLayout from '../layouts/IdeasLayout.astro';
 import ideasData from '../content/project/ideas/ideas.json';
 
 const projects = ideasData.projects;
@@ -7,67 +7,139 @@ const allTags = [...new Set(projects.flatMap((project: any) => project.tags))].s
 const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech_stack || []))].sort();
 ---
 
-<EventLayout title="Build2Learn Idea List" description="Explore beginner-friendly project ideas from Build2Learn">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="text-center mb-12">
+<IdeasLayout
+  title="Build2Learn Project Ideas"
+  description="Explore beginner-friendly project ideas from Build2Learn"
+>
+  <div>
+    <div class="text-center mb-4">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Build2Learn Project Ideas</h1>
-      <p class="text-xl text-gray-600 mb-8">Explore {projects.length} curated project ideas for first-time builders</p>
+      <p class="text-xl text-gray-600">Explore {projects.length} curated project ideas for first-time builders</p>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <div class="md:col-span-2 lg:col-span-1 xl:col-span-2">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search projects by title, description, or problem solved..."
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+    <div class="bg-gradient-to-r from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
+      <div class="flex flex-col space-y-6">
+        <div class="w-full">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search projects by title, description, problem, features, or technology..."
+              class="block w-full pl-10 pr-4 mb-3 py-3 border border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm hover:border-gray-300 transition-all"
+            />
+          </div>
         </div>
 
-        <div>
-          <select
-            id="tagFilter"
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="">All Tags</option>
-            {allTags.map((tag: string) => (
-              <option value={tag}>{tag}</option>
-            ))}
-          </select>
-        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <div>
-          <select
-            id="techStackFilter"
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="">All Tech</option>
-            {allTechStack.map((tech: string) => (
-              <option value={tech}>{tech}</option>
-            ))}
-          </select>
-        </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">Category</label>
+            <div class="relative">
+              <button
+                id="tagFilterBtn"
+                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                type="button"
+              >
+                <span id="tagFilterLabel" class="text-gray-900 truncate">All Categories</span>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="tagFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto">
+                <div class="py-2">
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="tag">
+                    All Categories
+                  </button>
+                  {allTags.map((tag: string) => (
+                    <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors capitalize" data-value={tag} data-filter="tag">
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <select
-            id="statusFilter"
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="">All Status</option>
-            <option value="Completed">Completed</option>
-            <option value="WIP">Work in Progress</option>
-            <option value="Planned">Planned</option>
-          </select>
-        </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">Technology</label>
+            <div class="relative">
+              <button
+                id="techStackFilterBtn"
+                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                type="button"
+              >
+                <span id="techStackFilterLabel" class="text-gray-900 truncate">All Technologies</span>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="techStackFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto">
+                <div class="py-2">
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="techStack">
+                    All Technologies
+                  </button>
+                  {allTechStack.map((tech: string) => (
+                    <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value={tech} data-filter="techStack">
+                      {tech}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="md:col-span-2 lg:col-span-3 xl:col-span-1 flex">
-          <button
-            id="clearFilters"
-            class="w-full px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
-          >
-            Clear
-          </button>
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">Status</label>
+            <div class="relative">
+              <button
+                id="statusFilterBtn"
+                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                type="button"
+              >
+                <span id="statusFilterLabel" class="text-gray-900 truncate">All Status</span>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="statusFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                <div class="py-2">
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="status">
+                    All Status
+                  </button>
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="Completed" data-filter="status">
+                    <span class="flex items-center">
+                      <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                      Completed
+                    </span>
+                  </button>
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="WIP" data-filter="status">
+                    <span class="flex items-center">
+                      <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                      Work in Progress
+                    </span>
+                  </button>
+                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="Planned" data-filter="status">
+                    <span class="flex items-center">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                      Planned
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700 opacity-0">Action</label>
+            <button
+              id="clearFilters"
+              class="w-full px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all flex items-center justify-center"
+            >
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Clear All
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -129,7 +201,7 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
                   <span
                     class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded cursor-pointer hover:bg-gray-200 transition-colors tech-filter"
                     data-tech={tech}
-                    onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('techStackFilter').value = this.getAttribute('data-tech'); filterProjects();"
+                    onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTechStackFilter(this.getAttribute('data-tech') || '', this.textContent || ''); }).call(this, event);"
                   >
                     {tech}
                   </span>
@@ -149,7 +221,7 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
               <span
                 class="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full cursor-pointer hover:bg-blue-100 transition-colors tag-filter"
                 data-tag={tag}
-                onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('tagFilter').value = this.getAttribute('data-tag'); filterProjects();"
+                onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTagFilter(this.getAttribute('data-tag') || '', this.textContent || ''); }).call(this, event);"
               >
                 {tag}
               </span>
@@ -199,8 +271,22 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
   </div>
 
   <script>
+    declare global {
+      interface Window {
+        setTagFilter: (value: string, text: string) => void;
+        setTechStackFilter: (value: string, text: string) => void;
+      }
+    }
+
     let allProjects: Array<{ element: HTMLElement; data: any }> = [];
     let filteredProjects: Array<{ element: HTMLElement; data: any }> = [];
+
+    let currentFilters = {
+      search: '',
+      tag: '',
+      techStack: '',
+      status: ''
+    };
 
     document.addEventListener('DOMContentLoaded', function() {
       const projectCards = document.querySelectorAll('.project-card');
@@ -213,47 +299,92 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       updateDisplay();
       updateResultsCount();
 
-      const searchInput = document.getElementById('searchInput');
-      const tagFilter = document.getElementById('tagFilter');
-      const techStackFilter = document.getElementById('techStackFilter');
-      const statusFilter = document.getElementById('statusFilter');
-      const clearFiltersBtn = document.getElementById('clearFilters');
-
-      if (searchInput) searchInput.addEventListener('input', filterProjects);
-      if (tagFilter) tagFilter.addEventListener('change', filterProjects);
-      if (techStackFilter) techStackFilter.addEventListener('change', filterProjects);
-      if (statusFilter) statusFilter.addEventListener('change', filterProjects);
-      if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', clearFilters);
-
-     
+      initializeDropdowns();
+      initializeSearchAndClear();
     });
 
+    function initializeDropdowns() {
+      const dropdownButtons = ['tagFilterBtn', 'techStackFilterBtn', 'statusFilterBtn'];
+
+      dropdownButtons.forEach(btnId => {
+        const button = document.getElementById(btnId);
+        const dropdownId = btnId.replace('Btn', 'Dropdown');
+        const dropdown = document.getElementById(dropdownId);
+
+        if (button && dropdown) {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            dropdown.classList.toggle('hidden');
+          });
+        }
+      });
+
+      document.querySelectorAll('.filter-option').forEach(option => {
+        option.addEventListener('click', function(this: HTMLElement) {
+          const value = this.getAttribute('data-value') || '';
+          const filterType = this.getAttribute('data-filter');
+          const text = this.textContent?.trim() || '';
+
+          const labelId = filterType + 'FilterLabel';
+          const label = document.getElementById(labelId);
+          if (label) label.textContent = text;
+
+          if (filterType) {
+            currentFilters[filterType as keyof typeof currentFilters] = value;
+          }
+
+          const dropdownId = filterType + 'FilterDropdown';
+          const dropdown = document.getElementById(dropdownId);
+          if (dropdown) dropdown.classList.add('hidden');
+
+          filterProjects();
+        });
+      });
+
+      document.addEventListener('click', closeAllDropdowns);
+    }
+
+    function closeAllDropdowns() {
+      const dropdowns = ['tagFilterDropdown', 'techStackFilterDropdown', 'statusFilterDropdown'];
+      dropdowns.forEach(id => {
+        const dropdown = document.getElementById(id);
+        if (dropdown) dropdown.classList.add('hidden');
+      });
+    }
+
+    function initializeSearchAndClear() {
+      const searchInput = document.getElementById('searchInput');
+      const clearFiltersBtn = document.getElementById('clearFilters');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentFilters.search = (this as HTMLInputElement).value.toLowerCase();
+          filterProjects();
+        });
+      }
+
+      if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', clearFilters);
+      }
+    }
+
     function filterProjects() {
-      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-      const tagFilter = document.getElementById('tagFilter') as HTMLSelectElement;
-      const techStackFilter = document.getElementById('techStackFilter') as HTMLSelectElement;
-      const statusFilter = document.getElementById('statusFilter') as HTMLSelectElement;
-
-      const searchTerm = searchInput?.value.toLowerCase() || '';
-      const selectedTag = tagFilter?.value || '';
-      const selectedTechStack = techStackFilter?.value || '';
-      const selectedStatus = statusFilter?.value || '';
-
       filteredProjects = allProjects.filter(project => {
         const data = project.data;
 
-        const matchesSearch = !searchTerm ||
-          data.title.toLowerCase().includes(searchTerm) ||
-          data.description.toLowerCase().includes(searchTerm) ||
-          data.problem_solved.toLowerCase().includes(searchTerm) ||
-          (data.features && data.features.some((f: string) => f.toLowerCase().includes(searchTerm))) ||
-          (data.tech_stack && data.tech_stack.some((t: string) => t.toLowerCase().includes(searchTerm)));
+        const matchesSearch = !currentFilters.search ||
+          data.title.toLowerCase().includes(currentFilters.search) ||
+          data.description.toLowerCase().includes(currentFilters.search) ||
+          data.problem_solved.toLowerCase().includes(currentFilters.search) ||
+          (data.features && data.features.some((f: string) => f.toLowerCase().includes(currentFilters.search))) ||
+          (data.tech_stack && data.tech_stack.some((t: string) => t.toLowerCase().includes(currentFilters.search)));
 
-        const matchesTag = !selectedTag || data.tags.includes(selectedTag);
+        const matchesTag = !currentFilters.tag || data.tags.includes(currentFilters.tag);
 
-        const matchesTechStack = !selectedTechStack || (data.tech_stack && data.tech_stack.includes(selectedTechStack));
+        const matchesTechStack = !currentFilters.techStack || (data.tech_stack && data.tech_stack.includes(currentFilters.techStack));
 
-        const matchesStatus = !selectedStatus || data.status === selectedStatus;
+        const matchesStatus = !currentFilters.status || data.status === currentFilters.status;
 
         return matchesSearch && matchesTag && matchesTechStack && matchesStatus;
       });
@@ -290,17 +421,41 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
     }
 
     function clearFilters() {
-      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-      const tagFilter = document.getElementById('tagFilter') as HTMLSelectElement;
-      const techStackFilter = document.getElementById('techStackFilter') as HTMLSelectElement;
-      const statusFilter = document.getElementById('statusFilter') as HTMLSelectElement;
+      // Reset current filters
+      currentFilters = {
+        search: '',
+        tag: '',
+        techStack: '',
+        status: ''
+      };
 
+      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
       if (searchInput) searchInput.value = '';
-      if (tagFilter) tagFilter.value = '';
-      if (techStackFilter) techStackFilter.value = '';
-      if (statusFilter) statusFilter.value = '';
+
+      const tagLabel = document.getElementById('tagFilterLabel');
+      const techStackLabel = document.getElementById('techStackFilterLabel');
+      const statusLabel = document.getElementById('statusFilterLabel');
+
+      if (tagLabel) tagLabel.textContent = 'All Categories';
+      if (techStackLabel) techStackLabel.textContent = 'All Technologies';
+      if (statusLabel) statusLabel.textContent = 'All Status';
+
       filterProjects();
     }
+
+    window.setTagFilter = function(value: string, text: string) {
+      currentFilters.tag = value;
+      const label = document.getElementById('tagFilterLabel');
+      if (label) label.textContent = text;
+      filterProjects();
+    };
+
+    window.setTechStackFilter = function(value: string, text: string) {
+      currentFilters.techStack = value;
+      const label = document.getElementById('techStackFilterLabel');
+      if (label) label.textContent = text;
+      filterProjects();
+    };
   </script>
 
   <style>
@@ -325,4 +480,4 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       overflow: hidden;
     }
   </style>
-</EventLayout>
+</IdeasLayout>
