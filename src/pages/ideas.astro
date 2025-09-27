@@ -1,6 +1,6 @@
 ---
 import EventLayout from '../layouts/EventLayout.astro';
-import ideasData from '../content/ideas.json';
+import ideasData from '../content/project/ideas/ideas.json';
 
 const projects = ideasData.projects;
 const allTags = [...new Set(projects.flatMap((project: any) => project.tags))].sort();
