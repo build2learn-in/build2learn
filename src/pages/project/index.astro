@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('project')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => b.data.eventDate.valueOf() - a.data.eventDate.valueOf(),
 );
 ---
 
@@ -41,13 +41,19 @@ const posts = (await getCollection('project')).sort(
 			}
 			ul li:first-child img {
 				width: 100%;
+				height: 300px;
+				object-fit: cover;
 			}
 			ul li:first-child .title {
 				font-size: 2.369rem;
 			}
 			ul li img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
 			}
 			ul li a {
 				display: block;
@@ -67,6 +73,7 @@ const posts = (await getCollection('project')).sort(
 			}
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
+				transform: translateY(-4px) scale(1.02);
 			}
 			@media (max-width: 720px) {
 				ul {
@@ -82,6 +89,12 @@ const posts = (await getCollection('project')).sort(
 				ul li:first-child .title {
 					font-size: 1.563em;
 				}
+				ul li:first-child img {
+					height: 250px;
+				}
+				ul li img {
+					height: 180px;
+				}
 			}
 		</style>
 	</head>
@@ -94,10 +107,10 @@ const posts = (await getCollection('project')).sort(
 						posts.map((post) => (
 							<li>
 								<a href={`/project/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
+									<img width={720} height={360} src={post.data.photo} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
+										<FormattedDate date={post.data.eventDate} />
 									</p>
 								</a>
 							</li>
