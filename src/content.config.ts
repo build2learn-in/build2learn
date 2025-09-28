@@ -22,16 +22,15 @@ const project = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
+		participants: z.array(z.string()),
+		photo: z.string().optional(),
+		eventDate: z.coerce.date(),
+		projectTitle: z.string(),
 		description: z.string(),
-		developer: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		team: z.array(z.string()).optional(),
-		tech_stack: z.array(z.string()).optional(),
-		github_url: z.string().optional(),
-		demo_url: z.string().optional(),
+		techStack: z.array(z.string()),
+		githubRepo: z.string().optional(),
+		demoUrl: z.string().optional(),
+		linkedinMention: z.string().optional(),
 	}),
 });
 
