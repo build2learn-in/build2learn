@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 
+import partytown from '@astrojs/partytown';
+
+
 const getSite = function () {
   
   if (process.env.SITE) {
@@ -22,5 +25,10 @@ const getSite = function () {
 // https://astro.build/config
 export default defineConfig({
   site: getSite(),
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [
+    mdx(), 
+    sitemap(), 
+    tailwind(), 
+    partytown({ config: { forward: ['dataLayer.push'] } })
+  ],
 });
