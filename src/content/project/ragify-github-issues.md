@@ -18,5 +18,4 @@ demoUrl: 'https://github.com/bhavaniravi/github-discussions-rag/'
 linkedinMention: 'Syed Saif has been a massive help in writing the Github integration that pulls the data. During the event, we agreed on a data model and worked independently; it took us 15 minutes to integrate everything. It was a joyful experience.'
 ---
 
-
 This project demonstrates how to build a RAG (Retrieval-Augmented Generation) AI Q&A system using GitHub issues and discussions as the knowledge base. The system leverages advanced text embedding techniques and modern language models to provide intelligent responses based on existing GitHub conversations.
