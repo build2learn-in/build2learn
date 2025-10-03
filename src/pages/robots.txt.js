@@ -1,13 +1,14 @@
 import { APIRoute } from 'astro';
 
-const getRobotsTxt = (sitemapURL) => `
+const getRobotsTxt = (sitemapURL, allowIndexing) => `
 User-agent: *
-Allow: /
+${allowIndexing ? 'Allow: /' : 'Disallow: /'}
 
 Sitemap: ${sitemapURL.href}
 `;
 
 export const GET = ({ site }) => {
   const sitemapURL = new URL('sitemap-index.xml', site);
-  return new Response(getRobotsTxt(sitemapURL));
+  const allowIndexing = process.env.SITE === 'build2learn.in';
+  return new Response(getRobotsTxt(sitemapURL, allowIndexing));
 };

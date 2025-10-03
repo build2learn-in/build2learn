@@ -15,6 +15,7 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const allowIndexing = import.meta.env.SITE === 'build2learn.in';
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
@@ -22,6 +23,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+{!allowIndexing && <meta name="robots" content="noindex, nofollow" />}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href={new URL('/sitemap-index.xml', Astro.site)} />
 <link
