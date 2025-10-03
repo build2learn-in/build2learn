@@ -8,6 +8,9 @@ import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 
 
+import cloudflare from '@astrojs/cloudflare';
+
+
 const getSite = function () {
 
   console.log(process.env.SITE)
@@ -26,7 +29,7 @@ const getSite = function () {
 
   // Default to production site for builds
   return process.env.NODE_ENV === 'development'
-    ? new URL('http://localhost:3000').toString() 
+    ? new URL('http://localhost:4321').toString() 
     : new URL('https://build2learn.in').toString();
 
 };
@@ -34,10 +37,13 @@ const getSite = function () {
 // https://astro.build/config
 export default defineConfig({
   site: getSite(),
+
   integrations: [
     mdx(), 
     sitemap(), 
     tailwind(), 
     partytown({ config: { forward: ['dataLayer.push'] } })
   ],
+
+  adapter: cloudflare()
 });
