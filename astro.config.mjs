@@ -9,16 +9,25 @@ import partytown from '@astrojs/partytown';
 
 
 const getSite = function () {
+
+  console.log(process.env.SITE)
+  console.log(process.env.CF_PAGES_URL)
+  console.log(process.env.NODE_ENV)
+
   
-  if (process.env.SITE) {
-    return new URL(`https://${process.env.SITE}`).toString();
-  }
-  
+
   if (process.env.CF_PAGES_URL) {
     return new URL(process.env.CF_PAGES_URL).toString();
   }
 
-  return new URL('http://localhost:3000').toString();
+  if (process.env.SITE) {
+    return new URL(`https://${process.env.SITE}`).toString();
+  }
+
+  // Default to production site for builds
+  return process.env.NODE_ENV === 'development'
+    ? new URL('http://localhost:3000').toString() 
+    : new URL('https://build2learn.in').toString();
 
 };
 
