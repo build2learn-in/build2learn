@@ -33,7 +33,7 @@ module.exports = {
         caption1: ['12px', { lineHeight: '16px', fontWeight: '500' }],
         caption2: ['10px', { lineHeight: '16px', fontWeight: '500' }],
       },
-    },    
+    },
   },
   plugins: [],
-}
+};

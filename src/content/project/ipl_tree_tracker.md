@@ -7,8 +7,8 @@ participants:
 photo: '/images/projects/ipl_tree_tracker_team.png'
 eventDate: 'April 19, 2025'
 projectTitle: 'Tracking Dot Balls and Tree Plantation by IPL Teams'
-description: 'This project identifies which IPL team has played the most dot balls and planted the most trees as part of their green initiatives.
-'
+description: |
+  This project identifies which IPL team has played the most dot balls and planted the most trees as part of their green initiatives.
 techStack:
   - 'NextJs'
   - 'Nodejs'

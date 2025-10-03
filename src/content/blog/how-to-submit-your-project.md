@@ -6,7 +6,6 @@ heroImage: '/how-to-submit-your-project.jpg'
 tags: ['build2learn', 'contribution']
 ---
 
-
 Follow these step-by-step instructions to showcase your project on build2learn.
 
 ## Prerequisites
@@ -86,6 +85,7 @@ Add screenshots or demo video links if available.
 ### 5. Submit Your PR
 
 1. Commit your changes:
+
 ```bash
 git add .
 git commit -m "Add project: YOUR-PROJECT-NAME"
