@@ -5,80 +5,281 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
-const { title, description, pubDate, updatedDate, heroImage, developer, tech_stack, team, github_url,demo_url } = Astro.props;
+type Props = CollectionEntry<'project'>['data'];
+const {
+  title,
+  description,
+  eventDate,
+  photo,
+  participants,
+  techStack,
+  githubRepo,
+  demoUrl,
+  projectTitle,
+  linkedinMention,
+} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-		
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+      }
+      .hero-image {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+        max-height: 400px;
+        object-fit: cover;
+      }
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+      .title {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5rem 0;
+        font-size: 2.5rem;
+        color: rgb(var(--accent));
+      }
+      .date {
+        margin-bottom: 1rem;
+        color: rgb(var(--gray));
+        font-size: 1.1rem;
+      }
+      .project-meta {
+        margin-bottom: 3rem;
+      }
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+      .meta-item {
+        padding: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+      }
+      .meta-label {
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 1rem;
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+      .meta-value {
+        color: #374151;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .tech-tag {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: default;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+      }
+      .tech-tag:hover {
+        transform: translateY(-1px) scale(1.05);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      }
+      .participants {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .participant-tag {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: default;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+      }
+      .participant-tag:hover {
+        transform: translateY(-1px) scale(1.05);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+      }
+      .description-container {
+        margin: 2rem 0;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+      .links-container {
+        margin-top: 2rem;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+      .links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .link-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        font-size: 0.95rem;
+        border: 2px solid #2563eb;
+      }
+      .link-button:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+      }
+      .content {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 2px solid rgb(var(--gray-light));
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        .project-meta {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+        .title h1 {
+          font-size: 2rem;
+        }
+        .links {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
 
-					</div>
-					<p>Developed by: {developer}</p>
-					<p>Tech stack: {tech_stack && tech_stack.join(' & ')}</p>
-					<p>Team: {team.join('& ')}</p>
-					<p>GitHub: {github_url}</p>
-					<p>Demo: {demo_url}</p>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="hero-image">
+          {photo && <img width={1020} height={510} src={photo} alt="" />}
+        </div>
+        <div class="prose">
+          <div class="title">
+            <div class="date">
+              <FormattedDate date={eventDate} />
+            </div>
+            <h1>{projectTitle || title}</h1>
+          </div>
+
+          <div class="project-meta">
+            <div class="meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Participants</span>
+                <div class="participants">
+                  {
+                    participants &&
+                      participants.map((participant) => (
+                        <span class="participant-tag">{participant}</span>
+                      ))
+                  }
+                </div>
+              </div>
+
+              <div class="meta-item">
+                <span class="meta-label">Tech Stack</span>
+                <div class="tech-stack">
+                  {
+                    techStack &&
+                      techStack.map((tech) => (
+                        <span class="tech-tag">{tech}</span>
+                      ))
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="description-container">
+              <span class="meta-label">Description</span>
+              <div class="meta-value">{description}</div>
+            </div>
+
+            <div class="links-container">
+              <span class="meta-label">Project Links</span>
+              <div class="links">
+                {
+                  githubRepo && (
+                    <a
+                      href={githubRepo}
+                      class="link-button"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      📚 GitHub Repository
+                    </a>
+                  )
+                }
+                {
+                  demoUrl && (
+                    <a
+                      href={demoUrl}
+                      class="link-button"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      🚀 Live Demo
+                    </a>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+
+          {
+            linkedinMention && (
+              <div class="content">
+                <h3>Team Collaboration</h3>
+                <p>{linkedinMention}</p>
+              </div>
+            )
+          }
+
+          <div class="content">
+            <slot />
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

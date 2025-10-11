@@ -8,10 +8,10 @@ const currentDate = new Date();
 
 // Sort events by date and determine status
 const sortedEvents = events
-  .map(event => {
+  .map((event) => {
     const eventDate = new Date(event.data.eventDate);
     let status;
-    
+
     // Set status based on date
     if (eventDate < currentDate) {
       status = 'PAST';
@@ -20,72 +20,83 @@ const sortedEvents = events
     } else {
       status = 'UPCOMING';
     }
-    
+
     return {
       ...event,
-      data: { ...event.data, status }
+      data: { ...event.data, status },
     };
   })
   .sort((a, b) => {
     if (a.data.status === 'UPCOMING' && b.data.status !== 'UPCOMING') return -1;
     if (a.data.status !== 'UPCOMING' && b.data.status === 'UPCOMING') return 1;
-    return new Date(b.data.eventDate).getTime() - new Date(a.data.eventDate).getTime();
+    return (
+      new Date(b.data.eventDate).getTime() -
+      new Date(a.data.eventDate).getTime()
+    );
   });
 
-const upcomingEvents = sortedEvents.filter(event => event.data.status === 'UPCOMING');
-const pastEvents = sortedEvents.filter(event => event.data.status === 'PAST');
+const upcomingEvents = sortedEvents.filter(
+  (event) => event.data.status === 'UPCOMING'
+);
+const pastEvents = sortedEvents.filter((event) => event.data.status === 'PAST');
 ---
 
 <EventLayout title="Events | Build2Learn">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Build2Learn Events</h1>
-      <p class="text-xl text-gray-600">Join our community of builders and innovators</p>
+      <p class="text-xl text-gray-600">
+        Join our community of builders and innovators
+      </p>
     </div>
 
-    {upcomingEvents.length > 0 && (
-      <section class="mb-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Upcoming Events</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {upcomingEvents.map(event => (
-            <EventCard
-              title={event.data.title}
-              description={event.data.description}
-              eventDate={event.data.eventDate}
-              heroImage={event.data.heroImage}
-              venue={event.data.venue}
-              status={event.data.status}
-              slug={event.id}
-            />
-          ))}
-        </div>
-      </section>
-    )}
+    {
+      upcomingEvents.length > 0 && (
+        <section class="mb-16">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Upcoming Events</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {upcomingEvents.map((event) => (
+              <EventCard
+                title={event.data.title}
+                description={event.data.description}
+                eventDate={event.data.eventDate}
+                venue={event.data.venue}
+                status={event.data.status}
+                slug={event.id}
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    {pastEvents.length > 0 && (
-      <section>
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Past Events</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pastEvents.map(event => (
-            <EventCard
-              title={event.data.title}
-              description={event.data.description}
-              eventDate={event.data.eventDate}
-              heroImage={event.data.heroImage}
-              venue={event.data.venue}
-              status={event.data.status}
-              slug={event.id}
-            />
-          ))}
-        </div>
-      </section>
-    )}
+    {
+      pastEvents.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Past Events</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {pastEvents.map((event) => (
+              <EventCard
+                title={event.data.title}
+                description={event.data.description}
+                eventDate={event.data.eventDate}
+                venue={event.data.venue}
+                status={event.data.status}
+                slug={event.id}
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    {upcomingEvents.length === 0 && pastEvents.length === 0 && (
-      <div class="text-center py-12">
-        <p class="text-xl text-gray-600">No events found. Check back soon!</p>
-      </div>
-    )}
+    {
+      upcomingEvents.length === 0 && pastEvents.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-xl text-gray-600">No events found. Check back soon!</p>
+        </div>
+      )
+    }
   </div>
 </EventLayout>
 

@@ -3,13 +3,12 @@ interface Props {
   title: string;
   description: string;
   eventDate: Date;
-  heroImage: string;
   venue: string;
   status: string;
   slug: string;
 }
 
-const { title, description, eventDate, heroImage, venue, status, slug } = Astro.props;
+const { title, description, eventDate, venue, status, slug } = Astro.props;
 const formattedDate = eventDate.toLocaleDateString('en-US', {
   weekday: 'long',
   year: 'numeric',
@@ -18,55 +17,88 @@ const formattedDate = eventDate.toLocaleDateString('en-US', {
 });
 ---
 
-<div class="event-card group hover:shadow-lg transition-shadow duration-200 bg-white rounded-2xl shadow p-5 space-y-2">
+<div
+  class="event-card group hover:shadow-md transition-all duration-200 bg-white rounded-lg border border-gray-100 p-6"
+>
   <a href={`/events/${slug}`} class="block">
-    <div class="relative">
-      <img
-        src={heroImage || '/blog-placeholder-3.jpg'}
-        alt={title}
-        class="w-full h-48 object-cover rounded-t-lg card-cover-img"
-      />
-      <div class={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium
-        ${status === 'UPCOMING' ? 'bg-green-500 text-white' :
-          status === 'ONGOING' ? 'bg-blue-500 text-white' :
-          'bg-gray-500 text-white'}`}>
+    <div class="flex justify-between items-start mb-4">
+      <div
+        class={`px-3 py-1 rounded-full text-xs font-medium
+        ${
+          status === 'UPCOMING'
+            ? 'bg-green-100 text-green-700'
+            : status === 'ONGOING'
+              ? 'bg-blue-100 text-blue-700'
+              : 'bg-gray-100 text-gray-700'
+        }`}
+      >
         {status}
       </div>
     </div>
-    <div class="pt-6">
-      <h5 class="text-xl mb-2 group-hover:text-blue-600 transition-colors">
-        {title}
-      </h5>
-      <p class="text-p3 text-gray-600 mb-4 line-clamp-2">
-        {description}
-      </p>
-      
-      <div class="flex items-center text-sm text-gray-500">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+
+    <h5
+      class="text-lg font-semibold mb-3 group-hover:text-blue-600 transition-colors leading-tight"
+    >
+      {title}
+    </h5>
+
+    <p class="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-2">
+      {description}
+    </p>
+
+    <div class="space-y-2 text-sm text-gray-500">
+      <div class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          ></path>
         </svg>
-        <span class="text-p3">{formattedDate}</span>
+        <span>{formattedDate}</span>
       </div>
-      <div class="flex items-center text-sm text-gray-500 mt-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      <div class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
         </svg>
-        <span class="text-p3">{venue}</span>
+        <span>{venue}</span>
       </div>
     </div>
   </a>
 </div>
 
 <style>
-.event-card {
-  @apply bg-white rounded-lg border border-gray-200;
-}
+  .event-card {
+    @apply bg-white rounded-lg border border-gray-200;
+  }
 
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 </style>
