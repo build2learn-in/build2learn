@@ -1,0 +1,377 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  url?: string;
+  type: 'blog' | 'project';
+}
+
+const { title, description, url, type } = Astro.props;
+const shareUrl = url || '';
+
+// Create custom captions for social media - including URL in the text
+const twitterText =
+  type === 'blog'
+    ? `Hey! Take a look at my recent blog from @build2learn_c:"${title}"#build2learn`
+    : `Check out my latest project from "${title}" #build2learn`;
+
+// Suggested caption for manual copying
+const suggestedCaption =
+  type === 'blog'
+    ? `Hey! Take a look at my recent blog from Build2Learn: "${title}" #build2learn`
+    : `Check out my latest project from Build2Learn: "${title}" #build2learn`;
+---
+
+<div class="social-share-buttons flex items-center gap-3">
+  <!-- Twitter/X Share Button -->
+  <a
+    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterText)}&url=${encodeURIComponent(shareUrl)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="social-button twitter"
+    aria-label="Share on Twitter"
+    title="Share on Twitter"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+      ></path>
+    </svg>
+    <span class="button-text">Twitter</span>
+  </a>
+
+  <!-- LinkedIn Share Button -->
+  <button
+    type="button"
+    class="social-button linkedin"
+    data-share-url={shareUrl}
+    data-caption={suggestedCaption}
+    aria-label="Share on LinkedIn"
+    title="Click to copy caption, then share on LinkedIn"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+      ></path>
+    </svg>
+    <span class="button-text">LinkedIn</span>
+  </button>
+
+  <!-- Copy Link Button (existing share functionality) -->
+  <button
+    type="button"
+    class="social-button copy-link"
+    data-share-url={shareUrl}
+    aria-label="Copy link"
+    title="Copy link"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+      ></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+      ></path>
+    </svg>
+    <span class="button-text">Copy Link</span>
+  </button>
+
+  <!-- Native Share Button -->
+  <button
+    type="button"
+    class="social-button native-share"
+    data-share-title={title}
+    data-share-text={description || ''}
+    data-share-url={shareUrl}
+    aria-label="Share"
+    title="Share"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+      ></path>
+    </svg>
+    <span class="button-text">Share</span>
+  </button>
+</div>
+
+<!-- Toast notification for copy success -->
+<div
+  id="social-toast"
+  class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50 pointer-events-none"
+>
+  <div class="flex items-center gap-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 text-green-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"
+      ></path>
+    </svg>
+    <span>Link copied to clipboard!</span>
+  </div>
+</div>
+
+<style>
+  .social-share-buttons {
+    margin: 1rem 0;
+  }
+
+  .social-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+
+  .social-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .social-button.linkedin {
+    background-color: #0077b5;
+    color: white;
+    border-color: #0077b5;
+    cursor: pointer;
+  }
+
+  .social-button.linkedin:hover {
+    background-color: #005885;
+    border-color: #005885;
+  }
+
+  .social-button.twitter {
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+  }
+
+  .social-button.twitter:hover {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+  }
+
+  .social-button.copy-link {
+    background-color: #6b7280;
+    color: white;
+    border-color: #6b7280;
+    cursor: pointer;
+  }
+
+  .social-button.copy-link:hover {
+    background-color: #4b5563;
+    border-color: #4b5563;
+  }
+
+  .social-button.native-share {
+    background-color: #10b981;
+    color: white;
+    border-color: #10b981;
+    cursor: pointer;
+  }
+
+  .social-button.native-share:hover {
+    background-color: #059669;
+    border-color: #059669;
+  }
+
+  @media (max-width: 640px) {
+    .social-share-buttons {
+      flex-wrap: wrap;
+    }
+
+    .social-button {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8125rem;
+    }
+
+    .button-text {
+      display: none;
+    }
+
+    .social-button svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButtons = document.querySelectorAll('.copy-link');
+    const nativeShareButtons = document.querySelectorAll('.native-share');
+    const linkedinButtons = document.querySelectorAll(
+      '.social-button.linkedin'
+    );
+    const toast = document.getElementById('social-toast');
+
+    // Copy Link functionality
+    copyButtons.forEach((button) => {
+      if (button instanceof HTMLElement) {
+        const shareUrl = button.dataset.shareUrl || window.location.href;
+
+        button.addEventListener('click', async (e) => {
+          e.preventDefault();
+
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            showToast('Link copied to clipboard!');
+          } catch {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = shareUrl;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+              document.execCommand('copy');
+              showToast('Link copied to clipboard!');
+            } catch {
+              // Failed to copy - fail silently
+            }
+            document.body.removeChild(textArea);
+          }
+        });
+      }
+    });
+
+    // LinkedIn Share functionality
+    linkedinButtons.forEach((button) => {
+      if (button instanceof HTMLElement) {
+        const shareUrl = button.dataset.shareUrl || window.location.href;
+        const caption = button.dataset.caption || '';
+
+        button.addEventListener('click', async (e) => {
+          e.preventDefault();
+
+          try {
+            // Copy caption with URL to clipboard
+            const textToCopy = `${caption}\n\n${shareUrl}`;
+            await navigator.clipboard.writeText(textToCopy);
+
+            // Show toast with instructions
+            showToast('Caption copied! Paste it in your LinkedIn post');
+
+            // Open LinkedIn share dialog after a short delay
+            setTimeout(() => {
+              window.open(
+                `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+                '_blank',
+                'width=700,height=500'
+              );
+            }, 1000);
+          } catch {
+            // Fallback - just open LinkedIn with URL
+            window.open(
+              `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+              '_blank',
+              'width=700,height=500'
+            );
+          }
+        });
+      }
+    });
+
+    // Native Share functionality
+    nativeShareButtons.forEach((button) => {
+      if (button instanceof HTMLElement) {
+        const shareTitle = button.dataset.shareTitle || document.title;
+        const shareText = button.dataset.shareText || '';
+        const shareUrl = button.dataset.shareUrl || window.location.href;
+
+        // Hide native share button if Web Share API is not supported
+        if (!navigator.share) {
+          button.style.display = 'none';
+        } else {
+          button.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            try {
+              await navigator.share({
+                title: shareTitle,
+                text: shareText,
+                url: shareUrl,
+              });
+            } catch (err) {
+              // User cancelled or share failed
+              if (err instanceof Error && err.name !== 'AbortError') {
+                // Fall back to copying link if share fails
+                try {
+                  await navigator.clipboard.writeText(shareUrl);
+                  showToast('Link copied to clipboard!');
+                } catch {
+                  // Silently fail
+                }
+              }
+            }
+          });
+        }
+      }
+    });
+
+    function showToast(message: string) {
+      if (toast) {
+        const toastMessage = toast.querySelector('span');
+        if (toastMessage) {
+          toastMessage.textContent = message || 'Link copied to clipboard!';
+        }
+        toast.classList.remove(
+          'translate-y-full',
+          'opacity-0',
+          'pointer-events-none'
+        );
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add(
+            'translate-y-full',
+            'opacity-0',
+            'pointer-events-none'
+          );
+        }, 3000);
+      }
+    }
+  });
+</script>
