@@ -1,7 +1,7 @@
 ---
 title: 'Build2Learn #32'
 description: 'Join us for an exciting hackathon where innovation meets community!'
-eventDate: '2025-10-11'
+eventDate: '2025-11-10'
 eventTime: '9:30 AM - 2:00 PM'
 heroImage: '/blog-placeholder-3.jpg'
 venue: 'Freeshworks'
