@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import SocialShareButtons from '../components/SocialShareButtons.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -76,20 +77,38 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
             <hr />
           </div>
           <slot />
-          {
-            tags && (
-              <div class="flex items-center">
-                {tags.map((tag: string) => (
-                  <a
-                    class="not-prose rounded-base border-border bg-main text-main-foreground ml-3 border px-2 py-0.5 text-sm no-underline first:ml-0"
-                    href={`/blog/tags/${tag}`}
-                  >
-                    #{tag}
-                  </a>
-                ))}
-              </div>
-            )
-          }
+
+          <!-- Social Share Section -->
+          <div class="social-share-section mt-8 pt-6 border-t border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Share this post</h3>
+            <SocialShareButtons
+              title={title}
+              description={description}
+              type="blog"
+            />
+          </div>
+
+          <!-- Share Section -->
+          <div
+            class="share-section flex items-center justify-between flex-wrap gap-4 mt-6"
+          >
+            <div>
+              {
+                tags && (
+                  <div class="flex items-center flex-wrap gap-2">
+                    {tags.map((tag: string) => (
+                      <a
+                        class="not-prose rounded-base border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-2 py-0.5 text-sm no-underline hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        href={`/blog/tags/${tag}`}
+                      >
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
+                )
+              }
+            </div>
+          </div>
         </div>
       </article>
     </main>
