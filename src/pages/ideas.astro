@@ -2,9 +2,24 @@
 import IdeasLayout from '../layouts/IdeasLayout.astro';
 import ideasData from '../content/project/ideas/ideas.json';
 
-const projects = ideasData.projects;
-const allTags = [...new Set(projects.flatMap((project: any) => project.tags))].sort();
-const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech_stack || []))].sort();
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  problem_solved: string;
+  features?: string[];
+  tags: string[];
+  status: string;
+  tech_stack?: string[];
+}
+
+const projects: Project[] = ideasData.projects;
+const allTags = [
+  ...new Set(projects.flatMap((project: Project) => project.tags)),
+].sort();
+const allTechStack = [
+  ...new Set(projects.flatMap((project: Project) => project.tech_stack || [])),
+].sort();
 ---
 
 <IdeasLayout
@@ -13,113 +28,211 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
 >
   <div>
     <div class="text-center mb-4">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Build2Learn Project Ideas</h1>
-      <p class="text-xl text-gray-600">Explore {projects.length} curated project ideas for first-time builders</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Build2Learn Project Ideas
+      </h1>
+      <p class="text-xl text-gray-600">
+        Explore {projects.length} curated project ideas for first-time builders
+      </p>
     </div>
 
-    <div class="bg-gradient-to-r from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
+    <div
+      class="bg-gradient-to-r from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8"
+    >
       <div class="flex flex-col space-y-6">
         <div class="w-full">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search projects by title, description, problem, features, or technology..."
-              class="block w-full pl-10 pr-4 mb-3 py-3 border border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm hover:border-gray-300 transition-all"
-            />
-          </div>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search projects by title, description, problem, features, or technology..."
+            class="block w-full pl-10 pr-4 mb-3 py-3 border border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm hover:border-gray-300 transition-all"
+          />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
           <div class="space-y-2">
-            <label class="block text-sm font-medium text-gray-700">Category</label>
+            <label class="block text-sm font-medium text-gray-700"
+              >Category</label
+            >
             <div class="relative">
               <button
                 id="tagFilterBtn"
-                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                class="w-full px-4 py-1.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
                 type="button"
               >
-                <span id="tagFilterLabel" class="text-gray-900 truncate">All Categories</span>
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                <span id="tagFilterLabel" class="text-gray-900 truncate"
+                  >All Categories</span
+                >
+                <svg
+                  class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="tagFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto">
+              <div
+                id="tagFilterDropdown"
+                class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto"
+              >
                 <div class="py-2">
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="tag">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value=""
+                    data-filter="tag"
+                  >
                     All Categories
                   </button>
-                  {allTags.map((tag: string) => (
-                    <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors capitalize" data-value={tag} data-filter="tag">
-                      {tag}
-                    </button>
-                  ))}
+                  {
+                    allTags.map((tag: string) => (
+                      <button
+                        type="button"
+                        class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors capitalize"
+                        data-value={tag}
+                        data-filter="tag"
+                      >
+                        {tag}
+                      </button>
+                    ))
+                  }
                 </div>
               </div>
             </div>
           </div>
 
           <div class="space-y-2">
-            <label class="block text-sm font-medium text-gray-700">Technology</label>
+            <label class="block text-sm font-medium text-gray-700"
+              >Technology</label
+            >
             <div class="relative">
               <button
                 id="techStackFilterBtn"
-                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                class="w-full px-4 py-1.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
                 type="button"
               >
-                <span id="techStackFilterLabel" class="text-gray-900 truncate">All Technologies</span>
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                <span id="techStackFilterLabel" class="text-gray-900 truncate"
+                  >All Technologies</span
+                >
+                <svg
+                  class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="techStackFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto">
+              <div
+                id="techStackFilterDropdown"
+                class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-64 overflow-y-auto"
+              >
                 <div class="py-2">
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="techStack">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value=""
+                    data-filter="techStack"
+                  >
                     All Technologies
                   </button>
-                  {allTechStack.map((tech: string) => (
-                    <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value={tech} data-filter="techStack">
-                      {tech}
-                    </button>
-                  ))}
+                  {
+                    allTechStack.map((tech: string) => (
+                      <button
+                        type="button"
+                        class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                        data-value={tech}
+                        data-filter="techStack"
+                      >
+                        {tech}
+                      </button>
+                    ))
+                  }
                 </div>
               </div>
             </div>
           </div>
 
           <div class="space-y-2">
-            <label class="block text-sm font-medium text-gray-700">Status</label>
+            <label class="block text-sm font-medium text-gray-700">Status</label
+            >
             <div class="relative">
               <button
                 id="statusFilterBtn"
-                class="w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
+                class="w-full px-4 py-1.5 border border-gray-200 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-between"
                 type="button"
               >
-                <span id="statusFilterLabel" class="text-gray-900 truncate">All Status</span>
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                <span id="statusFilterLabel" class="text-gray-900 truncate"
+                  >All Status</span
+                >
+                <svg
+                  class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="statusFilterDropdown" class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+              <div
+                id="statusFilterDropdown"
+                class="absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden"
+              >
                 <div class="py-2">
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="" data-filter="status">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value=""
+                    data-filter="status"
+                  >
                     All Status
                   </button>
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="Completed" data-filter="status">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value="Completed"
+                    data-filter="status"
+                  >
                     <span class="flex items-center">
-                      <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                      <span class="w-2 h-2 bg-green-400 rounded-full mr-2"
+                      ></span>
                       Completed
                     </span>
                   </button>
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="WIP" data-filter="status">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value="WIP"
+                    data-filter="status"
+                  >
                     <span class="flex items-center">
-                      <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                      <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"
+                      ></span>
                       Work in Progress
                     </span>
                   </button>
-                  <button type="button" class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors" data-value="Planned" data-filter="status">
+                  <button
+                    type="button"
+                    class="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 filter-option transition-colors"
+                    data-value="Planned"
+                    data-filter="status"
+                  >
                     <span class="flex items-center">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"
+                      ></span>
                       Planned
                     </span>
                   </button>
@@ -129,13 +242,24 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
           </div>
 
           <div class="space-y-2">
-            <label class="block text-sm font-medium text-gray-700 opacity-0">Action</label>
+            <label class="block text-sm font-medium text-gray-700 opacity-0"
+              >Action</label
+            >
             <button
               id="clearFilters"
-              class="w-full px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all flex items-center justify-center"
+              class="w-full px-4 py-1.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all flex items-center justify-center"
             >
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                class="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
               </svg>
               Clear All
             </button>
@@ -148,111 +272,158 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       <p id="resultsCount" class="text-gray-600"></p>
     </div>
 
-    <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project: any) => (
-        <a
-          href={`/ideas/${project.id}`}
-          class="project-card block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer"
-          data-project={JSON.stringify(project)}
-        >
-          <!-- Status Badge -->
-          <div class="flex justify-between items-start mb-3">
-            <span class={`px-2 py-1 text-xs font-semibold rounded-full ${
-              project.status === 'Completed' ? 'bg-green-100 text-green-800' :
-              project.status === 'WIP' ? 'bg-yellow-100 text-yellow-800' :
-              'bg-blue-100 text-blue-800'
-            }`}>
-              {project.status}
-            </span>
-            <span class="text-sm text-gray-500">#{project.id}</span>
-          </div>
-
-          <!-- Title & Description -->
-          <h3 class="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">{project.title}</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-3">{project.description}</p>
-
-          <!-- Problem Solved -->
-          <div class="mb-3">
-            <h4 class="text-sm font-semibold text-gray-800 mb-1">Problem Solved:</h4>
-            <p class="text-gray-600 text-xs line-clamp-2">{project.problem_solved}</p>
-          </div>
-
-          <!-- Features -->
-          {project.features && project.features.length > 0 && (
-            <div class="mb-3">
-              <h4 class="text-sm font-semibold text-gray-800 mb-1">Key Features:</h4>
-              <ul class="text-xs text-gray-600 list-disc list-inside">
-                {project.features.slice(0, 2).map((feature: string) => (
-                  <li class="line-clamp-1">{feature}</li>
-                ))}
-                {project.features.length > 2 && (
-                  <li class="text-blue-600 font-medium">+{project.features.length - 2} more features</li>
-                )}
-              </ul>
+    <div
+      id="projectsGrid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      {
+        projects.map((project: Project) => (
+          <a
+            href={`/ideas/${project.id}`}
+            class="project-card block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+            data-project={JSON.stringify(project)}
+          >
+            {/* Status Badge */}
+            <div class="flex justify-between items-start mb-3">
+              <span
+                class={`px-2 py-1 text-xs font-semibold rounded-full ${
+                  project.status === 'Completed'
+                    ? 'bg-green-100 text-green-800'
+                    : project.status === 'WIP'
+                      ? 'bg-yellow-100 text-yellow-800'
+                      : 'bg-blue-100 text-blue-800'
+                }`}
+              >
+                {project.status}
+              </span>
+              <span class="text-sm text-gray-500">#{project.id}</span>
             </div>
-          )}
 
-          <!-- Tech Stack -->
-          {project.tech_stack && project.tech_stack.length > 0 && (
+            {/* Title & Description */}
+            <h3 class="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+              {project.title}
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-3">
+              {project.description}
+            </p>
+
+            {/* Problem Solved */}
             <div class="mb-3">
-              <h4 class="text-sm font-semibold text-gray-800 mb-1">Tech Stack:</h4>
-              <div class="flex flex-wrap gap-1">
-                {project.tech_stack.slice(0, 3).map((tech: string) => (
-                  <span
-                    class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded cursor-pointer hover:bg-gray-200 transition-colors tech-filter"
-                    data-tech={tech}
-                    onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTechStackFilter(this.getAttribute('data-tech') || '', this.textContent || ''); }).call(this, event);"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {project.tech_stack.length > 3 && (
-                  <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded font-medium">
-                    +{project.tech_stack.length - 3}
-                  </span>
-                )}
+              <h4 class="text-sm font-semibold text-gray-800 mb-1">
+                Problem Solved:
+              </h4>
+              <p class="text-gray-600 text-xs line-clamp-2">
+                {project.problem_solved}
+              </p>
+            </div>
+
+            {/* Features */}
+            {project.features && project.features.length > 0 && (
+              <div class="mb-3">
+                <h4 class="text-sm font-semibold text-gray-800 mb-1">
+                  Key Features:
+                </h4>
+                <ul class="text-xs text-gray-600 list-disc list-inside">
+                  {project.features.slice(0, 2).map((feature: string) => (
+                    <li class="line-clamp-1">{feature}</li>
+                  ))}
+                  {project.features.length > 2 && (
+                    <li class="text-blue-600 font-medium">
+                      +{project.features.length - 2} more features
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )}
+
+            {/* Tech Stack */}
+            {project.tech_stack && project.tech_stack.length > 0 && (
+              <div class="mb-3">
+                <h4 class="text-sm font-semibold text-gray-800 mb-1">
+                  Tech Stack:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  {project.tech_stack.slice(0, 3).map((tech: string) => (
+                    <span
+                      class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded cursor-pointer hover:bg-gray-200 transition-colors tech-filter"
+                      data-tech={tech}
+                      onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTechStackFilter(this.getAttribute('data-tech') || '', this.textContent || ''); }).call(this, event);"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.tech_stack.length > 3 && (
+                    <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded font-medium">
+                      +{project.tech_stack.length - 3}
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Tags */}
+            <div class="flex flex-wrap gap-1 mt-auto">
+              {project.tags.slice(0, 4).map((tag: string) => (
+                <span
+                  class="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full cursor-pointer hover:bg-blue-100 transition-colors tag-filter"
+                  data-tag={tag}
+                  onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTagFilter(this.getAttribute('data-tag') || '', this.textContent || ''); }).call(this, event);"
+                >
+                  {tag}
+                </span>
+              ))}
+              {project.tags.length > 4 && (
+                <span class="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded-full">
+                  +{project.tags.length - 4}
+                </span>
+              )}
+            </div>
+
+            {/* View Details Indicator */}
+            <div class="mt-3 pt-3 border-t border-gray-100">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-gray-500">Click to view details</span>
+                <svg
+                  class="w-4 h-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </div>
             </div>
-          )}
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-1 mt-auto">
-            {project.tags.slice(0, 4).map((tag: string) => (
-              <span
-                class="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full cursor-pointer hover:bg-blue-100 transition-colors tag-filter"
-                data-tag={tag}
-                onclick="(function(e) { e.preventDefault(); e.stopPropagation(); window.setTagFilter(this.getAttribute('data-tag') || '', this.textContent || ''); }).call(this, event);"
-              >
-                {tag}
-              </span>
-            ))}
-            {project.tags.length > 4 && (
-              <span class="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded-full">
-                +{project.tags.length - 4}
-              </span>
-            )}
-          </div>
-
-          <!-- View Details Indicator -->
-          <div class="mt-3 pt-3 border-t border-gray-100">
-            <div class="flex items-center justify-between text-xs">
-              <span class="text-gray-500">Click to view details</span>
-              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))
+      }
     </div>
 
     <div id="noResults" class="hidden text-center py-12">
       <div class="text-gray-500">
-        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <svg
+          class="mx-auto h-12 w-12 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          ></path>
         </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No projects found</h3>
-        <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter criteria.</p>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">
+          No projects found
+        </h3>
+        <p class="mt-1 text-sm text-gray-500">
+          Try adjusting your search or filter criteria.
+        </p>
       </div>
     </div>
 
@@ -262,8 +433,18 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
         download
         class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
       >
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <svg
+          class="w-4 h-4 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          ></path>
         </svg>
         Download PDF Version
       </a>
@@ -271,6 +452,17 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
   </div>
 
   <script>
+    interface ProjectData {
+      id: number;
+      title: string;
+      description: string;
+      problem_solved: string;
+      features?: string[];
+      tags: string[];
+      status: string;
+      tech_stack?: string[];
+    }
+
     declare global {
       interface Window {
         setTagFilter: (value: string, text: string) => void;
@@ -278,21 +470,24 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       }
     }
 
-    let allProjects: Array<{ element: HTMLElement; data: any }> = [];
-    let filteredProjects: Array<{ element: HTMLElement; data: any }> = [];
+    let allProjects: Array<{ element: HTMLElement; data: ProjectData }> = [];
+    let filteredProjects: Array<{ element: HTMLElement; data: ProjectData }> =
+      [];
 
     let currentFilters = {
       search: '',
       tag: '',
       techStack: '',
-      status: ''
+      status: '',
     };
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const projectCards = document.querySelectorAll('.project-card');
-      allProjects = Array.from(projectCards).map(card => ({
+      allProjects = Array.from(projectCards).map((card) => ({
         element: card as HTMLElement,
-        data: JSON.parse((card as HTMLElement).getAttribute('data-project') || '{}')
+        data: JSON.parse(
+          (card as HTMLElement).getAttribute('data-project') || '{}'
+        ),
       }));
 
       filteredProjects = [...allProjects];
@@ -304,9 +499,13 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
     });
 
     function initializeDropdowns() {
-      const dropdownButtons = ['tagFilterBtn', 'techStackFilterBtn', 'statusFilterBtn'];
+      const dropdownButtons = [
+        'tagFilterBtn',
+        'techStackFilterBtn',
+        'statusFilterBtn',
+      ];
 
-      dropdownButtons.forEach(btnId => {
+      dropdownButtons.forEach((btnId) => {
         const button = document.getElementById(btnId);
         const dropdownId = btnId.replace('Btn', 'Dropdown');
         const dropdown = document.getElementById(dropdownId);
@@ -320,8 +519,8 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
         }
       });
 
-      document.querySelectorAll('.filter-option').forEach(option => {
-        option.addEventListener('click', function(this: HTMLElement) {
+      document.querySelectorAll('.filter-option').forEach((option) => {
+        option.addEventListener('click', function (this: HTMLElement) {
           const value = this.getAttribute('data-value') || '';
           const filterType = this.getAttribute('data-filter');
           const text = this.textContent?.trim() || '';
@@ -346,8 +545,12 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
     }
 
     function closeAllDropdowns() {
-      const dropdowns = ['tagFilterDropdown', 'techStackFilterDropdown', 'statusFilterDropdown'];
-      dropdowns.forEach(id => {
+      const dropdowns = [
+        'tagFilterDropdown',
+        'techStackFilterDropdown',
+        'statusFilterDropdown',
+      ];
+      dropdowns.forEach((id) => {
         const dropdown = document.getElementById(id);
         if (dropdown) dropdown.classList.add('hidden');
       });
@@ -358,8 +561,10 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       const clearFiltersBtn = document.getElementById('clearFilters');
 
       if (searchInput) {
-        searchInput.addEventListener('input', function() {
-          currentFilters.search = (this as HTMLInputElement).value.toLowerCase();
+        searchInput.addEventListener('input', function () {
+          currentFilters.search = (
+            this as HTMLInputElement
+          ).value.toLowerCase();
           filterProjects();
         });
       }
@@ -370,21 +575,33 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
     }
 
     function filterProjects() {
-      filteredProjects = allProjects.filter(project => {
+      filteredProjects = allProjects.filter((project) => {
         const data = project.data;
 
-        const matchesSearch = !currentFilters.search ||
+        const matchesSearch =
+          !currentFilters.search ||
           data.title.toLowerCase().includes(currentFilters.search) ||
           data.description.toLowerCase().includes(currentFilters.search) ||
           data.problem_solved.toLowerCase().includes(currentFilters.search) ||
-          (data.features && data.features.some((f: string) => f.toLowerCase().includes(currentFilters.search))) ||
-          (data.tech_stack && data.tech_stack.some((t: string) => t.toLowerCase().includes(currentFilters.search)));
+          (data.features &&
+            data.features.some((f: string) =>
+              f.toLowerCase().includes(currentFilters.search)
+            )) ||
+          (data.tech_stack &&
+            data.tech_stack.some((t: string) =>
+              t.toLowerCase().includes(currentFilters.search)
+            ));
 
-        const matchesTag = !currentFilters.tag || data.tags.includes(currentFilters.tag);
+        const matchesTag =
+          !currentFilters.tag || data.tags.includes(currentFilters.tag);
 
-        const matchesTechStack = !currentFilters.techStack || (data.tech_stack && data.tech_stack.includes(currentFilters.techStack));
+        const matchesTechStack =
+          !currentFilters.techStack ||
+          (data.tech_stack &&
+            data.tech_stack.includes(currentFilters.techStack));
 
-        const matchesStatus = !currentFilters.status || data.status === currentFilters.status;
+        const matchesStatus =
+          !currentFilters.status || data.status === currentFilters.status;
 
         return matchesSearch && matchesTag && matchesTechStack && matchesStatus;
       });
@@ -396,7 +613,7 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
     function updateDisplay() {
       const noResults = document.getElementById('noResults');
 
-      allProjects.forEach(project => {
+      allProjects.forEach((project) => {
         project.element.style.display = 'none';
       });
 
@@ -405,7 +622,7 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       } else {
         if (noResults) noResults.classList.add('hidden');
 
-        filteredProjects.forEach(project => {
+        filteredProjects.forEach((project) => {
           project.element.style.display = 'block';
         });
       }
@@ -426,10 +643,12 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
         search: '',
         tag: '',
         techStack: '',
-        status: ''
+        status: '',
       };
 
-      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+      const searchInput = document.getElementById(
+        'searchInput'
+      ) as HTMLInputElement;
       if (searchInput) searchInput.value = '';
 
       const tagLabel = document.getElementById('tagFilterLabel');
@@ -443,14 +662,14 @@ const allTechStack = [...new Set(projects.flatMap((project: any) => project.tech
       filterProjects();
     }
 
-    window.setTagFilter = function(value: string, text: string) {
+    window.setTagFilter = function (value: string, text: string) {
       currentFilters.tag = value;
       const label = document.getElementById('tagFilterLabel');
       if (label) label.textContent = text;
       filterProjects();
     };
 
-    window.setTechStackFilter = function(value: string, text: string) {
+    window.setTechStackFilter = function (value: string, text: string) {
       currentFilters.techStack = value;
       const label = document.getElementById('techStackFilterLabel');
       if (label) label.textContent = text;
