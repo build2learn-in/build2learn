@@ -307,35 +307,6 @@ const allTechStack = [
               {project.description}
             </p>
 
-            {/* Problem Solved */}
-            <div class="mb-3">
-              <h4 class="text-sm font-semibold text-gray-800 mb-1">
-                Problem Solved:
-              </h4>
-              <p class="text-gray-600 text-xs line-clamp-2">
-                {project.problem_solved}
-              </p>
-            </div>
-
-            {/* Features */}
-            {project.features && project.features.length > 0 && (
-              <div class="mb-3">
-                <h4 class="text-sm font-semibold text-gray-800 mb-1">
-                  Key Features:
-                </h4>
-                <ul class="text-xs text-gray-600 list-disc list-inside">
-                  {project.features.slice(0, 2).map((feature: string) => (
-                    <li class="line-clamp-1">{feature}</li>
-                  ))}
-                  {project.features.length > 2 && (
-                    <li class="text-blue-600 font-medium">
-                      +{project.features.length - 2} more features
-                    </li>
-                  )}
-                </ul>
-              </div>
-            )}
-
             {/* Tech Stack */}
             {project.tech_stack && project.tech_stack.length > 0 && (
               <div class="mb-3">
