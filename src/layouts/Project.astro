@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import SocialShareButtons from '../components/SocialShareButtons.astro';
 
 type Props = CollectionEntry<'project'>['data'];
 const {
@@ -209,7 +210,7 @@ const {
                 <div class="participants">
                   {
                     participants &&
-                      participants.map((participant) => (
+                      participants.map((participant: string) => (
                         <span class="participant-tag">{participant}</span>
                       ))
                   }
@@ -221,7 +222,7 @@ const {
                 <div class="tech-stack">
                   {
                     techStack &&
-                      techStack.map((tech) => (
+                      techStack.map((tech: string) => (
                         <span class="tech-tag">{tech}</span>
                       ))
                   }
@@ -276,6 +277,19 @@ const {
 
           <div class="content">
             <slot />
+          </div>
+
+          <!-- Social Share Section -->
+          <div class="social-share-section mt-8 pt-6 border-t border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Share this project</h3>
+            <SocialShareButtons
+              title={projectTitle || title}
+              description={description}
+              type="project"
+            />
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-gray-200 flex justify-end">
           </div>
         </div>
       </article>
