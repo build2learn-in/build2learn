@@ -4,12 +4,33 @@ import { getCollection } from 'astro:content';
 const events = await getCollection('event');
 const currentDate = new Date();
 
-const upcomingEvent = events
+const currentEvent = events
   .map((event: any) => ({
     ...event,
     eventDate: new Date(event.data.eventDate),
   }))
-  .filter((event: any) => event.eventDate >= currentDate)
+  .filter((event: any) => {
+    const eventDate = event.eventDate;
+    const eventStartTime = new Date(eventDate);
+    const eventEndTime = new Date(eventDate);
+    
+    // Parse event time (assuming format like "6:00 PM" or "18:00")
+    const timeStr = event.data.eventTime;
+    const [time, period] = timeStr.split(' ');
+    const [hours, minutes] = time.split(':');
+    
+    let eventHour = parseInt(hours);
+    if (period === 'PM' && eventHour !== 12) {
+      eventHour += 12;
+    } else if (period === 'AM' && eventHour === 12) {
+      eventHour = 0;
+    }
+    
+    eventStartTime.setHours(eventHour, parseInt(minutes), 0, 0);
+    eventEndTime.setHours(eventHour + 2, parseInt(minutes), 0, 0); // Assuming 2-hour events
+    
+    return currentDate >= eventStartTime && currentDate <= eventEndTime;
+  })
   .sort((a: any, b: any) => a.eventDate.getTime() - b.eventDate.getTime())[0];
 
 const formatEventDate = (date: Date) => {
@@ -22,28 +43,28 @@ const formatEventDate = (date: Date) => {
 ---
 
 {
-  upcomingEvent && (
-    <section class="bg-yellow-100 text-gray-900 py-4 px-4 sm:px-6 lg:px-8 border-b border-yellow-300">
+  currentEvent && (
+    <section class="bg-green-100 text-gray-900 py-4 px-4 sm:px-6 lg:px-8 border-b border-green-300">
       <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
           <p class="text-lg font-semibold">
-            🎉 {upcomingEvent.data.title} Meetup -{' '}
+            🔴 HAPPENING NOW: {currentEvent.data.title} Meetup -{' '}
             <span class="text-primary font-bold">
-              {formatEventDate(upcomingEvent.eventDate)}
+              {formatEventDate(currentEvent.eventDate)}
             </span>
           </p>
           <p class="text-sm text-gray-700">
-            ⏰ {upcomingEvent.data.eventTime} IST | 📍{' '}
-            {upcomingEvent.data.venue}
+            ⏰ {currentEvent.data.eventTime} IST | 📍{' '}
+            {currentEvent.data.venue}
           </p>
         </div>
-        {upcomingEvent.data.registration_link && (
+        {currentEvent.data.registration_link && (
           <a
-            href={upcomingEvent.data.registration_link}
+            href={currentEvent.data.registration_link}
             target="_blank"
-            class="inline-block bg-primary text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-primary-dark transition"
+            class="inline-block bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-green-700 transition"
           >
-            Register Now →
+            Join Now →
           </a>
         )}
       </div>
