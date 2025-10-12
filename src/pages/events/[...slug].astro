@@ -33,14 +33,28 @@ const formattedDeadline = event.data.registrationDeadline.toLocaleDateString(
   }
 );
 
-const currentDate = new Date();
+// Get current date in IST timezone
+const now = new Date();
+const istTimeString = now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+const istTime = new Date(istTimeString);
+const currentDateIST = new Date(
+  istTime.getFullYear(),
+  istTime.getMonth(),
+  istTime.getDate()
+);
+
 const eventDate = new Date(event.data.eventDate);
+const eventDateIST = new Date(
+  eventDate.getFullYear(),
+  eventDate.getMonth(),
+  eventDate.getDate()
+);
 const registrationDeadline = new Date(event.data.registrationDeadline);
 
 let status;
-if (eventDate < currentDate) {
+if (eventDateIST.getTime() < currentDateIST.getTime()) {
   status = 'PAST';
-} else if (eventDate.toDateString() === currentDate.toDateString()) {
+} else if (eventDateIST.getTime() === currentDateIST.getTime()) {
   status = 'ONGOING';
 } else {
   status = 'UPCOMING';
@@ -172,7 +186,7 @@ const logoColors = {
                     {formattedDeadline}
                   </p>
                 </div>
-                {currentDate <= registrationDeadline ? (
+                {currentDateIST <= registrationDeadline ? (
                   <a
                     href={event.data.registration_link}
                     target="_blank"
