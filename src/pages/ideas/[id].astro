@@ -1,0 +1,184 @@
+---
+import EventLayout from '../../layouts/EventLayout.astro';
+import ideasData from '../../content/project/ideas/ideas.json';
+
+export async function getStaticPaths() {
+  const projects = ideasData.projects;
+
+  return projects.map((project: any) => ({
+    params: { id: project.id.toString() },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+
+const getTechColor = (tech: string) => {
+  const colors = {
+    'React': 'bg-blue-100 text-blue-800',
+    'JavaScript': 'bg-yellow-100 text-yellow-800',
+    'Python': 'bg-green-100 text-green-800',
+    'Node.js': 'bg-green-100 text-green-800',
+    'Firebase': 'bg-orange-100 text-orange-800',
+    'HTML': 'bg-red-100 text-red-800',
+    'CSS': 'bg-blue-100 text-blue-800',
+    'TypeScript': 'bg-blue-100 text-blue-800',
+  };
+  return colors[tech as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+};
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'Completed':
+      return 'bg-green-100 text-green-800 border-green-200';
+    case 'WIP':
+      return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+    case 'Planned':
+      return 'bg-blue-100 text-blue-800 border-blue-200';
+    default:
+      return 'bg-gray-100 text-gray-800 border-gray-200';
+  }
+};
+---
+
+<EventLayout title={`${project.title} | Build2Learn Ideas`} description={project.description}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <nav class="flex mb-8" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li>
+          <a href="/ideas" class="text-gray-500 hover:text-gray-700 transition-colors">
+            Ideas
+          </a>
+        </li>
+        <li>
+          <svg class="flex-shrink-0 h-4 w-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </li>
+        <li>
+          <span class="text-gray-900 font-medium">#{project.id}</span>
+        </li>
+      </ol>
+    </nav>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-start justify-between mb-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-4 mb-4">
+            <span class={`px-3 py-1 text-sm font-semibold rounded-full border ${getStatusColor(project.status)}`}>
+              {project.status}
+            </span>
+            <span class="text-sm text-gray-500">Project #{project.id}</span>
+          </div>
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">{project.title}</h1>
+          <p class="text-lg text-gray-600 leading-relaxed">{project.description}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {project.tags.map((tag: string) => (
+          <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <div class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Problem This Solves
+          </h2>
+          <p class="text-gray-700 leading-relaxed">{project.problem_solved}</p>
+        </div>
+
+        {project.features && project.features.length > 0 && (
+          <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+              <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+              Key Features
+            </h2>
+            <ul class="space-y-3">
+              {project.features.map((feature: string) => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Getting Started
+          </h2>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h3 class="font-medium text-gray-900 mb-2">Quick Start Tips:</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>• Break down the project into smaller, manageable tasks</li>
+              <li>• Start with a basic MVP (Minimum Viable Product)</li>
+              <li>• Focus on core functionality first, then add features</li>
+              <li>• Test early and often with real users</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        {project.tech_stack && project.tech_stack.length > 0 && (
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Tech Stack
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {project.tech_stack.map((tech: string) => (
+                <span class={`px-3 py-1 text-sm font-medium rounded-lg ${getTechColor(tech)}`}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Project Info</h3>
+          <dl class="space-y-3">
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-600">Status</dt>
+              <dd class={`text-sm font-medium px-2 py-1 rounded ${getStatusColor(project.status).replace('border-', 'border ')}`}>
+                {project.status}
+              </dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-600">Project ID</dt>
+              <dd class="text-sm font-medium text-gray-900">#{project.id}</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-600">Difficulty</dt>
+              <dd class="text-sm font-medium text-gray-900">
+                {project.tags.includes('beginner') ? 'Beginner' :
+                 project.tags.includes('advanced') ? 'Advanced' : 'Intermediate'}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</EventLayout>
