@@ -35,32 +35,6 @@ const isToday =
   upcomingEvent &&
   upcomingEvent.eventDate.toDateString() === currentDateIST.toDateString();
 
-// Debug logging
-console.log('Current IST date:', currentDateIST);
-console.log('Current IST date string:', currentDateIST.toDateString());
-console.log('Upcoming event:', upcomingEvent?.data.title);
-console.log('Event date:', upcomingEvent?.eventDate);
-console.log('Event date string:', upcomingEvent?.eventDate.toDateString());
-console.log(
-  'Event date IST:',
-  new Date(
-    upcomingEvent?.eventDate.getFullYear(),
-    upcomingEvent?.eventDate.getMonth(),
-    upcomingEvent?.eventDate.getDate()
-  )
-);
-console.log('Is today:', isToday);
-console.log(
-  'Date comparison:',
-  new Date(
-    upcomingEvent?.eventDate.getFullYear(),
-    upcomingEvent?.eventDate.getMonth(),
-    upcomingEvent?.eventDate.getDate()
-  ).getTime(),
-  '===',
-  currentDateIST.getTime()
-);
-
 const formatEventDate = (date: Date) => {
   return date.toLocaleDateString('en-US', {
     weekday: 'long',

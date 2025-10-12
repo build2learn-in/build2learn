@@ -1,10 +1,10 @@
 ---
 title: 'Build2Learn #32'
 description: 'Join us for an exciting hackathon where innovation meets community!'
-eventDate: '2025-11-10'
+eventDate: '2025-10-11'
 eventTime: '9:30 AM - 2:00 PM'
 heroImage: '/blog-placeholder-3.jpg'
-venue: 'Freeshworks'
+venue: 'Freshworks'
 registrationDeadline: '2025-10-9'
 registration_link: 'https://events.mlh.io/events/12937-build2learn-x-hacktoberfest'
 venue_address: 'Vijay Shanthi Block-B, GLOBAL INFOCITY PARK, Perungudi, Chennai, Tamil Nadu 600096'
