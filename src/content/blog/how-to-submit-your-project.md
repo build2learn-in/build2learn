@@ -16,13 +16,13 @@ Follow these step-by-step instructions to showcase your project on build2learn.
 
 ## Steps to Submit Your Project
 
-### 1. Fork the Repository
+#### 1. Fork the Repository
 
-1. Visit the [build2learn repository](https://github.com/build2learn-in/build2learn)
-2. Click the "Fork" button in the top-right corner
-3. This will create a copy of the repository in your GitHub account
+Visit the [build2learn repository](https://github.com/build2learn-in/build2learn). <br />
+Click the "Fork" button in the top-right corner. (This will create a copy of the repository in your GitHub account)
+<br />
 
-### 2. Clone Your Fork
+#### 2. Clone Your Fork
 
 ```bash
 # Clone your forked repository
@@ -35,11 +35,13 @@ cd build2learn
 git checkout -b add-project-YOUR-PROJECT-NAME
 ```
 
-### 3. Add Your Project
+<br />
 
-1. Navigate to `src/content/projects/` directory
-2. Create a new markdown file with your project name (e.g., `your-project-name.md`)
-3. Use the following template for your project:
+#### 3. Add Your Project
+
+Navigate to `src/content/projects/` directory.<br />
+Create a new markdown file with your project name. (e.g., `your-project-name.md`).<br />
+Use the following template:<br />
 
 ```markdown
 ---
@@ -47,44 +49,47 @@ title: 'Your Project Title'
 description: 'A brief description of your project'
 pubDate: 'YYYY-MM-DD'
 heroImage: '/path-to-your-project-image.jpg'
-githubLink: 'https://github.com/your-username/your-project' # Optional
-demoLink: 'https://your-project-demo-link.com' # Optional
-tags: ['react', 'nodejs', 'mongodb'] # Add relevant technologies
+githubLink: 'https://github.com/your-username/your-project'
+demoLink: 'https://your-project-demo-link.com'
+tags: ['react', 'nodejs', 'mongodb']
 ---
 
-## About Project
+#### About Project
 
 Describe your project here. What does it do? What problem does it solve?
 
-## Features
+#### Features
 
 - Feature 1
 - Feature 2
 - Feature 3
 
-## Technologies Used
+#### Technologies Used
 
 - List the main technologies
 - Frameworks
 - Libraries
 
-## Setup Instructions
+#### Setup Instructions
 
 Provide basic setup instructions for running your project locally.
 
-## Screenshots/Demo
+#### Screenshots/Demo
 
 Add screenshots or demo video links if available.
 ```
 
-### 4. Add Project Images
+<br />
 
-1. Add your project images to the `public/projects/` directory
-2. Use relative paths in your markdown file to reference these images
+#### 4. Add Project Images
 
-### 5. Submit Your PR
+Add your project images to the `public/projects/` directory. <br />
+Use relative paths in your markdown file to reference them.
+<br />
 
-1. Commit your changes:
+#### 5. Submit Your PR
+
+Commit and push your changes:
 
 ```bash
 git add .
@@ -92,19 +97,23 @@ git commit -m "Add project: YOUR-PROJECT-NAME"
 git push origin add-project-YOUR-PROJECT-NAME
 ```
 
-2. Go to the [build2learn repository](https://github.com/build2learn-in/build2learn)
-3. Click "Pull Requests" > "New Pull Request"
-4. Select your fork and branch
-5. Fill in the PR description template
-6. Submit the pull request
+Then create a pull request:
 
-### PR Review Process
+- Go to the [build2learn repository](https://github.com/build2learn-in/build2learn)
+- Click "Pull Requests" > "New Pull Request"
+- Select your fork and branch
+- Fill in the PR description template
+- Submit the pull request
+  <br />
+  <br />
 
-- Your PR will be reviewed by the maintainers
-- They may request changes or improvements
-- Once approved, your project will be merged and displayed on the website
+## Review Process
 
-### Guidelines for Project Submission
+- Your PR will be reviewed by the maintainers.
+- They may request changes or improvements.
+- Once approved, your project will be merged and displayed on the website.
+
+## Submission Guidelines
 
 - Ensure your project is complete and working
 - Include clear documentation
