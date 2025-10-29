@@ -4,7 +4,7 @@ description: 'Join us for an exciting hackathon where innovation meets community
 eventDate: '2025-05-17'
 eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-01-20'
-heroImage: ''
+heroImage: '/images/about_us_hero.webp'
 registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLScsui1r6e6PsgDyOycPiIAY_rz9i8vQ02MnmikPw2ESVG830g/closedform'
 venue: 'Entrans Technologies Private Limited'
 venue_address: 'Millenia Business Park, Phase two, Dr MGR Main Rd, Kandhanchavadi, Perungudi, Chennai, Tamil Nadu 600096'

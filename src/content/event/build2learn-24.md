@@ -4,7 +4,7 @@ description: 'Join us for an exciting hackathon where innovation meets community
 eventDate: '2025-02-22'
 eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-02-20'
-heroImage: ''
+heroImage: '/images/about_us_hero.webp'
 registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLSdayj8qdgRAgsJMMUAAutan9zcxdsylZnpm7iaFoT1ZDTvY-A/closedform'
 venue: 'Kriyadocs'
 venue_address: 'OLYMPIA CYBERSPACE, Guindy, Chennai'

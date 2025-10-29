@@ -4,7 +4,7 @@ description: 'Join us for an exciting hackathon where innovation meets community
 eventDate: '2025-01-25'
 eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-01-20'
-heroImage: ''
+heroImage: '/images/about_us_hero.webp'
 registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLScsui1r6e6PsgDyOycPiIAY_rz9i8vQ02MnmikPw2ESVG830g/closedform'
 venue: 'IBM'
 venue_address: 'Ascendas IT Park, Taramani, Chennai'
