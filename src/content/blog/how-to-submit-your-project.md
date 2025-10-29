@@ -1,6 +1,6 @@
 ---
 title: 'How to submit your project?'
-description: 'Instructions to submit your project to display in build2learn project showcase.'
+description: 'Instructions to showcase your project'
 pubDate: 'Apr 07 2025'
 heroImage: '/how-to-submit-your-project.jpg'
 tags: ['build2learn', 'contribution']
