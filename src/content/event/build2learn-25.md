@@ -4,7 +4,7 @@ description: 'Join us for an exciting hackathon where innovation meets community
 eventDate: '2025-03-22'
 eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-03-20'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: ''
 registration_link: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdrpl_HFCw1v9uWh9U2U6rt-p6O-hzfe2hKPyjnj7AscQoXBg/closedform'
 venue: 'Kissflow'
 venue_address: 'World Trade Center, Perungudi, Chennai'

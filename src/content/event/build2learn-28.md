@@ -4,7 +4,7 @@ description: 'Join us for an exciting hackathon where innovation meets community
 eventDate: '2025-06-21'
 eventTime: '9:00 AM - 2:00 PM'
 registrationDeadline: '2025-06-19'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: ''
 registration_link: 'https://docs.google.com/forms/d/e/1FAIpQLScsui1r6e6PsgDyOycPiIAY_rz9i8vQ02MnmikPw2ESVG830g/closedform'
 venue: 'Thoughtworks Technologies'
 venue_address: 'International Tech Park, Zenith - 9th Floor, Ascendas, Taramani Link Rd, Tharamani, Chennai, Tamil Nadu 600113'
