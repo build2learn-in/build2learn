@@ -1,0 +1,73 @@
+---
+import { getAuthors } from '../utils/authors';
+
+interface Props {
+  authorKeys: string[];
+}
+
+const { authorKeys } = Astro.props;
+const authors = getAuthors(authorKeys);
+---
+
+<div class="blog-authors">
+  <span class="author-label">By</span>
+  {
+    authors.map((author, index) => (
+      <>
+        <a
+          href={author.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="author-link"
+          title={`Visit ${author.displayName}'s GitHub profile`}
+        >
+          {author.displayName}
+        </a>
+        {index < authors.length - 1 && <span class="author-separator">, </span>}
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .blog-authors {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: rgb(var(--gray));
+  }
+
+  .author-label {
+    font-weight: 500;
+    margin-right: 0.25rem;
+  }
+
+  .author-link {
+    color: rgb(var(--black));
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .author-link:hover {
+    color: rgb(var(--accent));
+    text-decoration: underline;
+  }
+
+  .author-separator {
+    color: rgb(var(--gray));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .author-link {
+      color: rgb(var(--white));
+    }
+
+    .author-link:hover {
+      color: rgb(var(--accent));
+    }
+  }
+</style>
