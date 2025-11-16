@@ -4,6 +4,7 @@ description: 'Instructions to showcase your project'
 pubDate: 'Apr 07 2025'
 heroImage: '/how-to-submit-your-project.jpg'
 tags: ['build2learn', 'contribution']
+authors: ['admin']
 ---
 
 Follow these step-by-step instructions to showcase your project on build2learn.
@@ -53,6 +54,15 @@ githubLink: 'https://github.com/your-username/your-project'
 demoLink: 'https://your-project-demo-link.com'
 tags: ['react', 'nodejs', 'mongodb']
 ---
+
+#### NOTE
+
+Add your details to src/data/authors.yaml file with your github details in the format:
+
+dorai:
+displayName: "Dorai Thodla"
+githubUsername: "dorait"
+bio: "Founder of Build2Learn community"
 
 #### About Project
 

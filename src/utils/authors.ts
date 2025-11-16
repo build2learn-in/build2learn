@@ -56,13 +56,10 @@ export function getAuthor(authorKey: string): Author {
   const rawAuthor = authors[authorKey];
 
   if (!rawAuthor) {
-    // Return a fallback author if not found
-    console.warn(`Author "${authorKey}" not found in authors.yaml`);
-    return {
-      displayName: authorKey,
-      githubUsername: authorKey,
-      githubUrl: `https://github.com/${authorKey}`,
-    };
+    throw new Error(
+      `Author "${authorKey}" not found in authors.yaml. ` +
+        `Please add them to src/data/authors.yaml before using in blog posts.`
+    );
   }
 
   return {
