@@ -14,7 +14,7 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     tags: z.array(z.string()),
     // Array of author keys, defaults to ['build2learn'] if not specified
-    authors: z.array(z.string()).default(['build2learn']),
+    authors: z.array(z.string()),
   }),
 });
 

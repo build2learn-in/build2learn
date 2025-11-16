@@ -2,10 +2,10 @@
 import { getAuthors } from '../utils/authors';
 
 interface Props {
-  authorKeys?: string[];
+  authorKeys: string[];
 }
 
-const { authorKeys = ['build2learn'] } = Astro.props;
+const { authorKeys } = Astro.props;
 const authors = getAuthors(authorKeys);
 ---
 
