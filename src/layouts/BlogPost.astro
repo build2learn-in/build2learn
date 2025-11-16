@@ -74,7 +74,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags, authors } =
                 )
               }
             </div>
-            <BlogAuthor authorKeys={authors} />
+            {authors && <BlogAuthor authorKeys={authors} />}
             <h1>{title}</h1>
             <hr />
           </div>
