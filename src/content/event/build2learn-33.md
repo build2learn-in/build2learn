@@ -2,11 +2,11 @@
 title: 'Build2Learn #33'
 description: 'Join us for an exciting hackathon where innovation meets community!'
 eventDate: '2025-11-29'
-eventTime: '9:00 AM - 2:00 PM'
+eventTime: '9:30 AM - 2:00 PM'
 heroImage: '/images/about_us_hero.webp'
 venue: 'Entrans Technologies Private Limited'
 registrationDeadline: '2025-11-27'
-registration_link: 'https://luma.com/8k87ukcv'
+registration_link: 'https://luma.com/8k87ukcv?utm_source=website'
 venue_address: 'Millenia Business Park, Phase two, Dr MGR Main Rd, Kandhanchavadi, Perungudi, Chennai, Tamil Nadu 600096'
 venue_location: 'https://maps.app.goo.gl/4TvSVFqw5rkw16xs6'
 maxParticipants: 50
