@@ -108,6 +108,37 @@ const formatEventDate = (date: Date) => {
               </div>
             </div>
           </div>
+
+          {/* Registration Button */}
+          {upcomingEvent.data.registration_link && (
+            <div class="flex-shrink-0">
+              <a
+                href={upcomingEvent.data.registration_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`inline-flex items-center px-6 py-3 rounded-lg font-bold shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white bg-white ${
+                  isToday
+                    ? 'text-emerald-600 hover:text-emerald-700'
+                    : 'text-blue-600 hover:text-blue-700'
+                }`}
+              >
+                <span>Register Now</span>
+                <svg
+                  class="w-5 h-5 ml-2 -mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>
