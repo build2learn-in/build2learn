@@ -172,4 +172,4 @@ import Announcement from '../components/announcement.astro';
     }
   });
 </script>
-<Announcement />
+{!Astro.url.pathname.startsWith('/events') && <Announcement />}
