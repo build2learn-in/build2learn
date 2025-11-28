@@ -1,11 +1,11 @@
 ---
 title: 'Build2Learn #33'
 description: 'Join us for an exciting hackathon where innovation meets community!'
-eventDate: '2025-11-29'
+eventDate: '2025-12-6'
 eventTime: '9:30 AM - 2:00 PM'
 heroImage: '/images/about_us_hero.webp'
 venue: 'Entrans Technologies Private Limited'
-registrationDeadline: '2025-11-27'
+registrationDeadline: '2025-12-4'
 registration_link: 'https://luma.com/8k87ukcv?utm_source=website'
 venue_address: 'Millenia Business Park, Phase two, Dr MGR Main Rd, Kandhanchavadi, Perungudi, Chennai, Tamil Nadu 600096'
 venue_location: 'https://maps.app.goo.gl/4TvSVFqw5rkw16xs6'
@@ -15,6 +15,8 @@ maxParticipants: 50
 ## About the Event
 
 Welcome to build2learn - Where Innovation Meets Community!
+
+> With an orange alert issued for Chennai on 29th November, we are postponing the event to 6th December, 2025.
 
 Imagine a hackathon, but with a twist! 🤔 It's not just about building incredible micro products; it's about forging lifelong connections with like-minded individuals who share your passion for innovation! 🤝💡
 
