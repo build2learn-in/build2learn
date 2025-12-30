@@ -18,35 +18,114 @@ const { title, description, pubDate, updatedDate, heroImage, tags, authors } =
     <BaseHead title={title} description={description} image={heroImage} />
     <style>
       main {
-        width: calc(100% - 2em);
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 3em 1rem;
+      }
+
+      @media (min-width: 640px) {
+        main {
+          padding: 3em 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        main {
+          padding: 3em 2rem;
+          max-width: 1080px;
+        }
+      }
+
+      article {
         max-width: 100%;
         margin: 0;
+        padding: 0;
       }
+
+      .title-section {
+        margin-bottom: 2em;
+      }
+
+      .title-section h1 {
+        margin: 0 0 0.75em 0;
+        font-size: 2.75em;
+        line-height: 1.15;
+        font-weight: 700;
+        color: rgb(var(--black));
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        font-size: 1.25em;
+        line-height: 1.4;
+        color: rgb(var(--gray));
+        margin-bottom: 1em;
+      }
+
+      .meta-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+        color: rgb(var(--gray));
+        font-size: 0.875em;
+        padding-bottom: 1.5em;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        margin-top: 0.5em;
+      }
+
+      .meta-info .date-separator {
+        color: rgb(var(--gray));
+      }
+
+      .last-updated-on {
+        font-style: italic;
+        font-size: 0.875em;
+        color: rgb(var(--gray));
+      }
+
       .hero-image {
-        width: 100%;
+        width: 80%;
+        max-width: 900px;
+        margin: 0 0 2.5em 0;
       }
+
       .hero-image img {
         display: block;
-        margin: 0 auto;
+        width: 100%;
+        height: auto;
         border-radius: 12px;
         box-shadow: var(--box-shadow);
       }
 
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
+      .author-section {
+        margin-top: 2.5em;
+        margin-bottom: 0;
       }
-      .title h1 {
-        margin: 0 0 0.5em 0;
+
+      article .prose {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
       }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
+
+      @media (max-width: 720px) {
+        article {
+          padding: 2em 1em;
+        }
+
+        .title-section h1 {
+          font-size: 2em;
+        }
+
+        .subtitle {
+          font-size: 1.1em;
+        }
+
+        .meta-info {
+          flex-wrap: wrap;
+        }
       }
     </style>
   </head>
@@ -55,29 +134,35 @@ const { title, description, pubDate, updatedDate, heroImage, tags, authors } =
     <Header />
     <main>
       <article>
-        <div class="hero-image">
-          {
-            heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
-            )
-          }
-        </div>
-        <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
+        <div class="title-section">
+          <h1>{title}</h1>
+          {description && <div class="subtitle">{description}</div>}
+          <div class="meta-info">
             {authors && <BlogAuthor authorKeys={authors} />}
-            <h1>{title}</h1>
-            <hr />
+            <span class="date-separator">·</span>
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <>
+                  <span class="date-separator">·</span>
+                  <div class="last-updated-on">
+                    Updated <FormattedDate date={updatedDate} />
+                  </div>
+                </>
+              )
+            }
           </div>
+        </div>
+
+        {
+          heroImage && (
+            <div class="hero-image">
+              <img width={1020} height={510} src={heroImage} alt="" />
+            </div>
+          )
+        }
+
+        <div class="prose">
           <slot />
 
           <!-- Social Share Section -->
