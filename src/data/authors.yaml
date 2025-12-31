@@ -1,0 +1,27 @@
+# Blog Authors Database
+# Add new authors here with their GitHub username and display name
+
+build2learn:
+  displayName: "Build2Learn"
+  githubUsername: "build2learn"
+  bio: "A community-led initiative for builders and learners"
+
+bhavani:
+  displayName: "Bhavani Ravi"
+  githubUsername: "bhavaniravi"
+  bio: "Tech enthusiast and community builder"
+
+shiny:
+  displayName: "Shiny"
+  githubUsername: "shinysu"
+  bio: "Community organizer and developer"
+
+dorai:
+  displayName: "Dorai Thodla"
+  githubUsername: "dorait"
+  bio: "Founder of Build2Learn community"
+
+admin:
+  displayName: "Build2Learn Admin"
+  githubUsername: "build2learn"
+  bio: "Build2Learn administrative account"
