@@ -110,6 +110,19 @@ const { title, description, pubDate, updatedDate, heroImage, tags, authors } =
         padding: 0;
       }
 
+      .prose :global(figure) {
+        text-align: center !important;
+        margin: 2rem auto !important;
+        display: block !important;
+      }
+
+      .prose :global(figure img) {
+        max-width: 100% !important;
+        border-radius: 12px !important;
+        display: inline-block !important;
+        margin: 0 auto !important;
+      }
+
       @media (max-width: 720px) {
         article {
           padding: 2em 1em;

@@ -25,3 +25,8 @@ admin:
   displayName: "Build2Learn Admin"
   githubUsername: "build2learn"
   bio: "Build2Learn administrative account"
+
+ashish:
+  displayName: "Ashish Cherian"
+  githubUsername: "pandawhocodes"
+  bio: "the human API who connects people while others connect systems"
