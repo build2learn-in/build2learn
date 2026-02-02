@@ -1,7 +1,7 @@
 ---
 title: 'Build2Learn Edition #34'
 description: 'Lights, Camera, Code! — Our Kollywood-Adjacent Hackday at Entrans Technologies'
-pubDate: 'Jan 31 2025'
+pubDate: 'Jan 31 2026'
 heroImage: '/images/blog/build2learn_edition34_image1.png'
 tags: ['build2learn', 'hackday', 'community']
 authors: ['ashish']
@@ -9,7 +9,7 @@ authors: ['ashish']
 
 _Lights, Camera, Code! — Our Kollywood-Adjacent Hackday_
 
-January 31st, 2025 | Hosted at Entrans Technologies
+January 31st, 2026 | Hosted at Entrans Technologies
 
 So here's the thing about Build2Learn — every edition has its own flavor, its own chaos, and its own little surprises. Edition #34? It came with a Kollywood twist. No, seriously.
 
