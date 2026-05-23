@@ -13,6 +13,25 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 
+const canonicalURL = new URL(`/ideas/${project.id}/`, Astro.site);
+
+// Structured data so Google understands each idea as a distinct
+// CreativeWork rather than a near-duplicate template page.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  description: project.description,
+  abstract: project.problem_solved,
+  url: canonicalURL.href,
+  keywords: [...(project.tags ?? []), ...(project.tech_stack ?? [])].join(', '),
+  isPartOf: {
+    '@type': 'CollectionPage',
+    name: 'Build2Learn Ideas',
+    url: new URL('/ideas/', Astro.site).href,
+  },
+};
+
 const getTechColor = (tech: string) => {
   const colors = {
     React: 'bg-blue-100 text-blue-800',
@@ -46,6 +65,11 @@ const getStatusColor = (status: string) => {
   description={project.description}
   image="/images/ideas_image.jpeg"
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd)}
+    is:inline
+  />
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
     <nav class="flex mb-8" aria-label="Breadcrumb">
       <ol class="flex items-center space-x-2">

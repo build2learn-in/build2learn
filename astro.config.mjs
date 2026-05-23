@@ -31,9 +31,19 @@ const getSite = function () {
 export default defineConfig({
   site: getSite(),
 
+  // Enforce a single canonical URL shape so Google consolidates
+  // /about and /about/ (etc.) instead of crawling both.
+  trailingSlash: 'always',
+
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      // Stamp every entry with the build time so Google re-crawls
+      // pages it had parked as "Crawled - currently not indexed".
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
     tailwind(),
     partytown({ config: { forward: ['dataLayer.push'] } }),
   ],
