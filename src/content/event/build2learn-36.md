@@ -24,9 +24,9 @@ Make mistakes, troubleshoot, ideate and build upon your skills 🛠
 
 ### Who Should Join?
 
-- **Aspiring Builders**: Have a side project you've been dreaming of? This is your chance!
-- **Students**: Looking for mentorship and guidance? We've got you covered!
-- **Mentors**: Want to help others reach their potential? Join us!
+- **Working professionals**
+- **Entreprenuers**
+- **Experienced developers & builders**
 
 <br />
 
@@ -37,9 +37,3 @@ Make mistakes, troubleshoot, ideate and build upon your skills 🛠
 3. Network and collaborate with fellow builders
 
 <br />
-
-## Hackathon Rules
-
-1. Projects must be built during the event
-2. Teams can be 1-3 people
-3. Final presentations will be 5 minutes per team
