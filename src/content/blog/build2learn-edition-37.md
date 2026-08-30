@@ -13,10 +13,6 @@ First things first — a huge shoutout to **Grootan Technologies** for hosting u
 
 People started trickling in a good thirty minutes early (a Build2Learn tradition at this point), and by the time introductions wrapped up, teams had already formed. Ideas were bouncing off each other before anyone had even opened a laptop. Here's what everyone built.
 
-<figure style="text-align: center; margin: 2rem 0;">
-  <img src="/images/blog/build2learn_edition37_hero.png" alt="Build2Learn Edition 37 at Grootan Technologies" style="max-width: 100%; border-radius: 12px;" />
-</figure>
-
 ## The Projects That Came to Life
 
 ---
