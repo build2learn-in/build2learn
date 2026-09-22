@@ -65,7 +65,7 @@ The way I'd describe it: **Jira user stories, but for an attack on your app.** S
 
 **Team: Mani and Muralidharan**
 
-Mani is a repeat offender, in the best way. He started this app at a Build2Learn last year and came back to keep building — which, if you've been following along, is exactly the kind of thing this community exists for.
+Mani is a repeat offender, in the best way. He started this app at a Build2Learn last month and came back to keep building — which, if you've been following along, is exactly the kind of thing this community exists for.
 
 Zero Accountant is a **document-first money workspace**. Snap a picture of a bill, upload it, and the app reads it and files it away. This time round he added two things:
 
