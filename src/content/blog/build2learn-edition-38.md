@@ -1,13 +1,13 @@
 ---
-title: 'Build2Learn Edition #39'
-description: 'Tamil Subtitles, Attack Stories, and a Zero Accountant — Build2Learn #39 at Ideas2IT'
+title: 'Build2Learn Edition #38'
+description: 'Tamil Subtitles, Attack Stories, and a Zero Accountant — Build2Learn #38 at Ideas2IT'
 pubDate: 'Sep 19 2026'
-heroImage: '/images/blog/build2learn_edition39_hero.jpg'
+heroImage: '/images/blog/build2learn_edition38_hero.jpg'
 tags: ['build2learn', 'hackday', 'community']
 authors: ['ashish']
 ---
 
-_19 September 2026. Nice sunny Saturday. Build2Learn number thirty-nine._
+_19 September 2026. Nice sunny Saturday. Build2Learn number thirty-eight._
 
 This time we were hosted by **Ideas2IT** — and yes, the 2 is a number, not a typo. Around 35 to 40 folks turned up, a healthy mix of professionals and students, though if I'm being honest the students had the numbers this time. Which I love. Nothing keeps a room awake like a bunch of people who haven't yet learnt to be scared of shipping.
 
@@ -18,7 +18,7 @@ We kicked off the way we always do: introductions, then idea pitches. Quite a fe
 We also had two mentors floating around the room all day, which made a real difference. **Magesh from Chennai Geeks**, and **Vera, one of the co-founders of Ideas2IT**, spent the day poking holes in ideas, unblocking teams and generally being the grown-ups in the room. Thank you both.
 
 <figure style="text-align: center; margin: 1.5rem 0;">
-  <img src="/images/blog/build2learn_edition39_mentors.jpg" alt="Mentors Magesh from Chennai Geeks and Vera from Ideas2IT with teams" style="max-width: 100%; border-radius: 12px;" />
+  <img src="/images/blog/build2learn_edition38_mentors.jpg" alt="Mentors Magesh from Chennai Geeks and Vera from Ideas2IT with teams" style="max-width: 100%; border-radius: 12px;" />
 </figure>
 
 ## Something new: prizes
@@ -40,7 +40,7 @@ So the team built live Tamil captioning — subtitles that follow the video as i
 They had the clearest social impact in the room, they had a working demo, and they handled every question thrown at them without flinching. Easy first.
 
 <figure style="text-align: center; margin: 1.5rem 0;">
-  <img src="/images/blog/build2learn_edition39_first_prize.jpg" alt="First place: Tamil live captions team" style="max-width: 100%; border-radius: 12px;" />
+  <img src="/images/blog/build2learn_edition38_first_prize.jpg" alt="First place: Tamil live captions team" style="max-width: 100%; border-radius: 12px;" />
 </figure>
 
 ---
@@ -56,7 +56,7 @@ It pulls in the live logs, figures out the attack that happened, and then writes
 The way I'd describe it: **Jira user stories, but for an attack on your app.** Someone broke in? Here's the epic, here are the tickets. Go fix.
 
 <figure style="text-align: center; margin: 1.5rem 0;">
-  <img src="/images/blog/build2learn_edition39_second_prize.jpg" alt="Second place: Sentinel X team" style="max-width: 100%; border-radius: 12px;" />
+  <img src="/images/blog/build2learn_edition38_second_prize.jpg" alt="Second place: Sentinel X team" style="max-width: 100%; border-radius: 12px;" />
 </figure>
 
 ---
@@ -77,7 +77,7 @@ Their tagline says it better than I can: _"Turn bills into clean records and set
 Really, really useful thing. Go poke around it.
 
 <figure style="text-align: center; margin: 1.5rem 0;">
-  <img src="/images/blog/build2learn_edition39_third_prize.jpg" alt="Third place: Zero Accountant team" style="max-width: 100%; border-radius: 12px;" />
+  <img src="/images/blog/build2learn_edition38_third_prize.jpg" alt="Third place: Zero Accountant team" style="max-width: 100%; border-radius: 12px;" />
 </figure>
 
 ---
@@ -88,4 +88,4 @@ We were supposed to wrap at 2. We wrapped at 2:40. I'd like to say that was a sc
 
 A huge thank you to the **Ideas2IT team** for having us in their office. Everything just _flowed_ — no Wi-Fi drama, no logistics drama — and they also took some genuinely lovely photos of us on the day. You'll see them scattered through this post.
 
-See you at #40.
+See you at #39.
