@@ -15,10 +15,10 @@ This time we were hosted by **Ideas2IT** — and yes, the 2 is a number, not a t
 
 We kicked off the way we always do: introductions, then idea pitches. Quite a few cool ones — more on those in a bit.
 
-We also had two mentors floating around the room all day, which made a real difference. **Magesh from Chennai Geeks**, and **Vera, one of the co-founders of Ideas2IT**, spent the day poking holes in ideas, unblocking teams and generally being the grown-ups in the room. Thank you both.
+We also had two mentors floating around the room all day, which made a real difference. **Magesh from Chennai Geeks**, and **Veera, one of the co-founders of Ideas2IT**, spent the day poking holes in ideas, unblocking teams and generally being the grown-ups in the room. Thank you both.
 
 <figure style="text-align: center; margin: 1.5rem 0;">
-  <img src="/images/blog/build2learn_edition38_mentors.jpg" alt="Mentors Magesh from Chennai Geeks and Vera from Ideas2IT with teams" style="max-width: 100%; border-radius: 12px;" />
+  <img src="/images/blog/build2learn_edition38_mentors.jpg" alt="Mentors Magesh from Chennai Geeks and Veera from Ideas2IT with teams" style="max-width: 100%; border-radius: 12px;" />
 </figure>
 
 ## Something new: prizes
@@ -65,7 +65,7 @@ The way I'd describe it: **Jira user stories, but for an attack on your app.** S
 
 **Team: Mani and Muralidharan**
 
-Mani is a repeat offender, in the best way. He started this app at a Build2Learn last year and came back to keep building — which, if you've been following along, is exactly the kind of thing this community exists for.
+Mani is a repeat offender, in the best way. He started this app at a Build2Learn last month and came back to keep building — which, if you've been following along, is exactly the kind of thing this community exists for.
 
 Zero Accountant is a **document-first money workspace**. Snap a picture of a bill, upload it, and the app reads it and files it away. This time round he added two things:
 
