@@ -18,7 +18,7 @@ import Announcement from '../components/announcement.astro';
           />
         </a>
       </div>
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <div class="flex items-center space-x-4">
           <HeaderLink
             href="/"
@@ -48,7 +48,7 @@ import Announcement from '../components/announcement.astro';
           >
         </div>
       </div>
-      <div class="hidden md:flex items-center space-x-3">
+      <div class="hidden lg:flex items-center space-x-3">
         <a
           href="https://www.linkedin.com/company/build2learn/"
           target="_blank"
@@ -107,18 +107,26 @@ import Announcement from '../components/announcement.astro';
           class="text-gray-500 hover:text-gray-700"
         >
           <span class="sr-only">Instagram</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            class="w-6 h-6"
+          >
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
           </svg>
         </a>
         <!-- End of newly added Instagram Link -->
-
       </div>
 
       <!-- Mobile menu button -->
-      <div class="md:hidden flex items-center">
+      <div class="lg:hidden flex items-center">
         <button
           type="button"
           class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
@@ -144,7 +152,7 @@ import Announcement from '../components/announcement.astro';
   </div>
 
   <!-- Mobile menu, show/hide based on menu state -->
-  <div class="mobile-menu hidden md:hidden">
+  <div class="mobile-menu hidden lg:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <a
         href="/"
