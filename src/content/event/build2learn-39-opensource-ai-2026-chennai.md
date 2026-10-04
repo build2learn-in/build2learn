@@ -1,6 +1,6 @@
 ---
-title: 'Build2Learn #39 Hacktoberfest Edition'
-description: 'A Hacktoberfest special hackathon celebrating open source — learn and build with open-source AI and open-weight models!'
+title: 'Build2Learn #39: Opensource AI Edition'
+description: 'Build2Learn is a buildathon celebrating open source — learn and build with open-source AI and open-weight models!'
 eventDate: '2026-10-24'
 eventTime: '9:30 AM - 2:00 PM'
 heroImage: '/images/about_us_hero.webp'
@@ -14,9 +14,9 @@ maxParticipants: 100
 
 ## About the Event
 
-Welcome to build2learn - Hacktoberfest Edition! 🎉
+Welcome to Build2Learn's Opensource AI Edition! 🎉
 
-Hacktoberfest is a month-long celebration of open source throughout October, and this year's focus is on learning and building with **open-source AI** and **open-weight models**.
+This special edition is a celebration of open source, with this year's focus on learning and building with **open-source AI** and **open-weight models**.
 
 > This October, dive into open source and build something meaningful with AI — tools that run on your machine, models you can actually inspect, and a community that builds in public.
 
@@ -27,7 +27,7 @@ Make mistakes, troubleshoot, ideate and build upon your skills 🛠
 ### Who Should Join?
 
 - **AI Enthusiasts**: Curious about open-source AI tools and open-weight models? This is your chance to get hands-on!
-- **Open Source Contributors**: New to Hacktoberfest or a seasoned maintainer — every contribution counts!
+- **Open Source Contributors**: New to open source or a seasoned maintainer — every contribution counts!
 - **Aspiring Builders**: Have a side project you've been dreaming of? This is your chance!
 - **Students**: Looking for mentorship and guidance? We've got you covered!
 - **Mentors**: Want to help others reach their potential? Join us!
