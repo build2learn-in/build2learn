@@ -93,4 +93,35 @@ If you've ever had a photographer hand you a Google Drive folder with thousands 
 
 That's build night one. Six people, six working things, one hour. Nobody built in a silo, and everyone left with at least one person to follow up with.
 
-We're going to do these every two to three weeks. Small group, online, everyone demos. If that sounds like your kind of evening, follow Build2Learn on Luma and come to the next one. Bring something to show, or come get ideas for what to build. Just don't come empty-handed.
+We're going to do these every two to three weeks. Small group, online, everyone demos. Bring something to show, or come get ideas for what to build. Just don't come empty-handed.
+
+<div class="not-prose my-10 overflow-hidden rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-8 text-white shadow-xl">
+  <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <div class="max-w-xl">
+      <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+        Closed Event · Max 10 Builders
+      </div>
+      <h3 style="color: #ffffff; margin: 0 0 0.5rem 0; font-size: 1.6rem; font-weight: 700; line-height: 1.25;">
+        Want in on the next Build Night?
+      </h3>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 1rem; line-height: 1.6;">
+        Build Nights are closed, small-group sessions capped at <strong>10 builders</strong> so everyone gets time to demo and get real feedback. Register below to get notified when spots open for the next one.
+      </p>
+    </div>
+    <div class="shrink-0">
+      <a
+        href="https://forms.gle/SaQAnpLrMAFxjhgg9"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color: #1d4ed8; text-decoration: none;"
+        class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3.5 text-base font-bold shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-xl"
+      >
+        <span>Register Your Interest</span>
+        <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
